@@ -1,0 +1,5 @@
+*.ts linguist-language=typescript
+
+*.tsx linguist-language=typescript
+
+*.scss linguist-language=typescript
