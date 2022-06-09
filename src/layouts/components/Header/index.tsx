@@ -14,6 +14,7 @@ const LayoutHeader = () => {
 				<BreadcrumbNav />
 			</div>
 			<div className="header-ri">
+				<span className="username">Hooks</span>
 				<AvatarIcon />
 			</div>
 		</Header>

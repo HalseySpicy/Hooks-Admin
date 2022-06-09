@@ -7,7 +7,7 @@ import "./index.scss";
 const LayoutTabs = () => {
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
-	const [activeValue, setActiveValue] = useState(pathname);
+	const [activeValue, setActiveValue] = useState<string>(pathname);
 	const [tabsList] = useState([
 		{
 			title: "首页",
@@ -24,51 +24,51 @@ const LayoutTabs = () => {
 		{
 			title: "使用 Hooks",
 			path: "/useHooks"
-		},
-		{
-			title: "使用 Component",
-			path: "/useComponent"
-		},
-		{
-			title: "数据可视化",
-			path: "/dashboard"
-		},
-		{
-			title: "内嵌页面",
-			path: "/embedded"
-		},
-		{
-			title: "基础 Form",
-			path: "/basicForm"
-		},
-		{
-			title: "校验 Form",
-			path: "/validateForm"
-		},
-		{
-			title: "动态 Form",
-			path: "/dynamicForm"
-		},
-		{
-			title: "水型图",
-			path: "/waterChart"
-		},
-		{
-			title: "柱状图",
-			path: "/columnChart"
-		},
-		{
-			title: "折线图",
-			path: "/超级表格"
-		},
-		{
-			title: "雷达图",
-			path: "/radarChart"
-		},
-		{
-			title: "嵌套环形图",
-			path: "/nestedChart"
 		}
+		// {
+		// 	title: "使用 Component",
+		// 	path: "/useComponent"
+		// },
+		// {
+		// 	title: "数据可视化",
+		// 	path: "/dashboard"
+		// },
+		// {
+		// 	title: "内嵌页面",
+		// 	path: "/embedded"
+		// },
+		// {
+		// 	title: "基础 Form",
+		// 	path: "/basicForm"
+		// },
+		// {
+		// 	title: "校验 Form",
+		// 	path: "/validateForm"
+		// },
+		// {
+		// 	title: "动态 Form",
+		// 	path: "/dynamicForm"
+		// },
+		// {
+		// 	title: "水型图",
+		// 	path: "/waterChart"
+		// },
+		// {
+		// 	title: "柱状图",
+		// 	path: "/columnChart"
+		// },
+		// {
+		// 	title: "折线图",
+		// 	path: "/超级表格"
+		// },
+		// {
+		// 	title: "雷达图",
+		// 	path: "/radarChart"
+		// },
+		// {
+		// 	title: "嵌套环形图",
+		// 	path: "/nestedChart"
+		// }
 	]);
 
 	useEffect(() => {
