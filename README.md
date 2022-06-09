@@ -4,6 +4,16 @@
 
 🚀🚀🚀 Hooks Admin，基于 React18、React-Router v6、React-Hooks、Redux、TypeScript、Vite2、Ant-Design 开源的一套后台管理框架。
 
+#### 在线预览地址
+
+- Link：http://hooks.spicyboy.cn
+
+#### Git 仓库地址 (欢迎 Star⭐)
+
+- Gitee：https://gitee.com/laramie/Hooks-Admin
+
+- GitHub：https://github.com/HalseySpicy/Hooks-Admin
+
 #### 安装使用步骤
 
 - **Clone：**
