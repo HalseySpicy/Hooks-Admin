@@ -16,8 +16,15 @@
 		"commit": "git pull && git add -A && git-cz && git push"
 	},
 	"dependencies": {
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"antd": "^4.21.0",
+		"axios": "^0.27.2",
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0",
+		"react-redux": "^8.0.2",
+		"react-router-dom": "^6.3.0",
+		"react-transition-group": "^4.4.2",
+		"redux": "^4.2.0",
+		"redux-persist": "^6.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.2",

@@ -60,9 +60,9 @@ module.exports = {
 		"@typescript-eslint/no-use-before-define": "off", // 禁止在变量定义之前使用它们
 		"@typescript-eslint/ban-ts-comment": "off", // 禁止 @ts-<directive> 使用注释或要求在指令后进行描述
 		"@typescript-eslint/no-non-null-assertion": "off", // 不允许使用后缀运算符的非空断言(!)
-		"@typescript-eslint/explicit-module-boundary-types": "off", // 要求导出函数和类的公共类方法的显式返回和参数类型
+		"@typescript-eslint/explicit-module-boundary-types": "off" // 要求导出函数和类的公共类方法的显式返回和参数类型
 
 		// react (https://github.com/jsx-eslint/eslint-plugin-react)
-		"react/jsx-uses-vars": "error"
+		// "react/jsx-uses-vars": "error"
 	}
 };

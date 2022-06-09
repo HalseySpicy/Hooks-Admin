@@ -5,7 +5,17 @@
 	},
 	"stylelint.validate": ["css", "less", "postcss", "scss", "tsx", "html"],
 	"cSpell.words": [
-		"cnpm"
+		"antd",
+		"breakline",
+		"browserslist",
+		"cnpm",
+		"commitlint",
+		"doclock",
+		"Gitee",
+		"loglevel",
+		"Prefixs",
+		"styl",
+		"stylelint"
 	],
 	"files.eol": "\n"
 }

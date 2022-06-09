@@ -53,9 +53,6 @@ npm run lint:eslint
 
 # prettier 格式化代码
 npm run lint:prettier
-
-# stylelint 格式化 css 样式
-lint:stylelint
 ```
 
 - **commit：**
