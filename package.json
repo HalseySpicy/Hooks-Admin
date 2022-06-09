@@ -11,7 +11,6 @@
 		"preview": "vite preview",
 		"lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
 		"lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
-		"lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
 		"lint:lint-staged": "lint-staged",
 		"prepare": "husky install",
 		"commit": "git pull && git add -A && git-cz && git push"
