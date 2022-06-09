@@ -6,14 +6,17 @@
 	"stylelint.validate": ["css", "less", "postcss", "scss", "tsx", "html"],
 	"cSpell.words": [
 		"antd",
+		"anticon",
 		"breakline",
 		"browserslist",
 		"cnpm",
 		"commitlint",
 		"doclock",
+		"Geeker",
 		"Gitee",
 		"loglevel",
 		"Prefixs",
+		"Sider",
 		"styl",
 		"stylelint"
 	],
