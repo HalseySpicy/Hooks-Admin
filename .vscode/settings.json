@@ -4,6 +4,8 @@
 		"source.fixAll.stylelint": true
 	},
 	"stylelint.validate": ["css", "less", "postcss", "scss", "tsx", "html"],
-	"cSpell.words": [],
+	"cSpell.words": [
+		"cnpm"
+	],
 	"files.eol": "\n"
 }

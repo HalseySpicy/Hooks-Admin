@@ -19,7 +19,7 @@ git clone https://github.com/HalseySpicy/Hooks-Admin.git
 
 ```text
 npm install
-cnpn install
+cnpm install
 
 # npm install 安装失败，请升级 nodejs 到 16 以上，或尝试使用以下命令：
 npm install --registry=https://registry.npm.taobao.org
