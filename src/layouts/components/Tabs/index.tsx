@@ -1,7 +1,7 @@
 import { Tabs } from "antd";
 import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./index.scss";
 
 const LayoutTabs = () => {
@@ -14,25 +14,21 @@ const LayoutTabs = () => {
 			path: "/home"
 		},
 		{
-			title: "超级表格",
-			path: "/proTable"
-		},
-		{
 			title: "数据大屏",
 			path: "/dataScreen"
 		},
 		{
 			title: "使用 Hooks",
-			path: "/useHooks"
+			path: "/proTable/useHooks"
+		},
+		{
+			title: "使用 Component",
+			path: "/proTable/useComponent"
+		},
+		{
+			title: "数据可视化",
+			path: "/dashboard/dataVisualize"
 		}
-		// {
-		// 	title: "使用 Component",
-		// 	path: "/useComponent"
-		// },
-		// {
-		// 	title: "数据可视化",
-		// 	path: "/dashboard"
-		// },
 		// {
 		// 	title: "内嵌页面",
 		// 	path: "/embedded"
@@ -75,8 +71,10 @@ const LayoutTabs = () => {
 		setActiveValue(pathname);
 	}, [pathname]);
 
+	const navigate = useNavigate();
+
 	const tabsClick = (path: string) => {
-		console.log(path);
+		navigate(path);
 	};
 
 	const delTabs = (path: string) => {
