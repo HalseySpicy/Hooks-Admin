@@ -1,13 +1,15 @@
+import React from "react";
 import { useRoutes, Navigate, RouteObject } from "react-router-dom";
+import lazyLoad from "./lazyLoad";
 
-import NotFound from "@/components/ErrorMessage/404";
-import LayoutIndex from "@/layouts/index";
-import Login from "@/views/login/index";
-import Home from "@/views/home/index";
-import DataScreen from "@/views/dataScreen/index";
-import UseHooks from "@/views/proTable/useHooks/index";
-import UseComponent from "@/views/proTable/useComponent/index";
-import DataVisualize from "@/views/dashboard/dataVisualize";
+// import NotFound from "@/components/ErrorMessage/404";
+// import LayoutIndex from "@/layouts/index";
+// import Login from "@/views/login/index";
+// import Home from "@/views/home/index";
+// import DataScreen from "@/views/dataScreen/index";
+// import UseHooks from "@/views/proTable/useHooks/index";
+// import UseComponent from "@/views/proTable/useComponent/index";
+// import DataVisualize from "@/views/dashboard/dataVisualize";
 
 const rootRouter: RouteObject[] = [
 	{
@@ -16,36 +18,38 @@ const rootRouter: RouteObject[] = [
 	},
 	{
 		path: "/login",
-		element: <Login />
+		element: lazyLoad(React.lazy(() => import("@/views/login/index")))
 	},
 	{
-		element: <LayoutIndex name="我是参数" />,
+		element: lazyLoad(React.lazy(() => import("@/layouts/index"))),
 		children: [
 			{
 				path: "/home",
-				element: <Home />
+				element: lazyLoad(React.lazy(() => import("@/views/home/index")))
 			},
 			{
 				path: "/dataScreen",
-				element: <DataScreen />
+				element: lazyLoad(React.lazy(() => import("@/views/dataScreen/index")))
 			},
+
 			{
 				path: "/proTable/useHooks",
-				element: <UseHooks />
+				element: lazyLoad(React.lazy(() => import("@/views/proTable/useHooks/index")))
 			},
 			{
 				path: "/proTable/useComponent",
-				element: <UseComponent />
+				element: lazyLoad(React.lazy(() => import("@/views/proTable/useComponent/index")))
 			},
+
 			{
 				path: "/dashboard/dataVisualize",
-				element: <DataVisualize />
+				element: lazyLoad(React.lazy(() => import("@/views/dashboard/dataVisualize/index")))
 			}
 		]
 	},
 	{
 		path: "*",
-		element: <NotFound />
+		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/404")))
 	}
 ];
 
