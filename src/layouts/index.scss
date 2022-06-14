@@ -11,20 +11,20 @@
 		}
 	}
 	.ant-layout-content {
-		margin: 10px 13px;
-		background-color: #fff;
-		padding: 20px;
-		box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-		border-radius: 4px;
 		box-sizing: border-box;
+		padding: 20px;
+		margin: 10px 13px;
 		overflow: auto;
 		overflow-x: hidden;
+		background-color: #ffffff;
+		border-radius: 4px;
+		box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 		.container {
-			width: 100%;
-			height: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

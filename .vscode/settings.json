@@ -1,12 +1,17 @@
 {
+	"editor.formatOnSave": true,
 	"stylelint.enable": true,
+	// 开启stylelint自动修复
 	"editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
 	},
-	"stylelint.validate": ["css", "less", "postcss", "scss", "tsx", "html"],
+	// 配置stylelint检查的文件类型范围
+	"stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
+	"files.eol": "\n",
 	"cSpell.words": [
 		"antd",
 		"anticon",
+		"Appstore",
 		"breakline",
 		"browserslist",
 		"cnpm",
@@ -19,6 +24,5 @@
 		"Sider",
 		"styl",
 		"stylelint"
-	],
-	"files.eol": "\n"
+	]
 }

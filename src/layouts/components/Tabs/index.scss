@@ -1,22 +1,22 @@
 .ant-tabs {
-	background-color: #fff;
-	border-bottom: 1px solid #e4e7ed;
 	padding: 0 13px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #e4e7ed;
 	.ant-tabs-nav {
 		margin: 0;
 		&::before {
 			border: none;
 		}
 		.ant-tabs-tab {
-			border: none;
+			color: #cccccc;
 			background: none;
+			border: none;
 			transition: none;
-			color: #ccc;
 			.anticon-home {
 				margin-right: 7px;
 			}
 			.ant-tabs-tab-remove {
-				color: #ccc;
+				color: #cccccc;
 				&:hover {
 					color: $primary-color;
 				}
@@ -25,7 +25,6 @@
 				color: $primary-color;
 			}
 		}
-
 		.ant-tabs-tab-active {
 			border-bottom: 2px solid $primary-color !important;
 			.ant-tabs-tab-remove {
