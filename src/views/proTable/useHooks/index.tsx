@@ -1,5 +1,5 @@
-const UseHooks = () => {
-	return <h1>UseHooks</h1>;
+const UseHooks02 = () => {
+	return <h1>UseHooks02</h1>;
 };
 
-export default UseHooks;
+export default UseHooks02;

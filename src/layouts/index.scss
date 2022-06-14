@@ -1,4 +1,5 @@
-.ant-layout {
+.container {
+	display: flex;
 	height: 100%;
 	.ant-layout-sider {
 		flex: 0 0 220px !important;
@@ -19,7 +20,7 @@
 		background-color: #ffffff;
 		border-radius: 4px;
 		box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-		.container {
+		.content {
 			display: flex;
 			align-items: center;
 			justify-content: center;

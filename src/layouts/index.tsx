@@ -9,13 +9,11 @@ import "./index.scss";
 
 const { Sider, Content } = Layout;
 
-const LayoutIndex = (props: { name: string }) => {
-	console.log(props);
-
+const LayoutIndex = () => {
 	const { pathname } = useLocation();
 
 	return (
-		<Layout>
+		<section className="container">
 			<Sider trigger={null} collapsible collapsed={false}>
 				<LayoutMenu></LayoutMenu>
 			</Sider>
@@ -23,7 +21,7 @@ const LayoutIndex = (props: { name: string }) => {
 				<LayoutHeader></LayoutHeader>
 				<LayoutTabs></LayoutTabs>
 				<Content>
-					<TransitionGroup className="container">
+					<TransitionGroup className="content">
 						{/* exit：表示退出当前页面的时候是否有动画 */}
 						<CSSTransition key={pathname} timeout={200} classNames="fade" exit={false}>
 							<Outlet></Outlet>
@@ -32,7 +30,7 @@ const LayoutIndex = (props: { name: string }) => {
 				</Content>
 				<LayoutFooter></LayoutFooter>
 			</Layout>
-		</Layout>
+		</section>
 	);
 };
 

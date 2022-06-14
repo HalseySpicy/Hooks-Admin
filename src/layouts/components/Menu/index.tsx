@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Menu } from "antd";
+import { getOpenKeys } from "@/utils/util";
+import Logo from "./components/Logo";
+import type { MenuProps } from "antd";
+import "./index.scss";
 import {
 	HomeOutlined,
 	TableOutlined,
@@ -9,31 +15,30 @@ import {
 	ShoppingOutlined,
 	AppstoreOutlined
 } from "@ant-design/icons";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Menu } from "antd";
-import Logo from "./components/Logo";
-import type { MenuProps } from "antd";
-import "./index.scss";
 
 const LayoutMenu = () => {
+	const navigate = useNavigate();
 	const { pathname } = useLocation();
-	const [menuActive, setMenuActive] = useState(pathname);
-	const getSubMenuActive = () => {
-		menuList.forEach(item => {
-			if (item.children) {
-				item.children.forEach(child => {
-					if (child.key == pathname) {
-						setSubMenuActive(item.key);
-					}
-				});
-			}
-		});
-	};
+	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
+	const [openKeys, setOpenKeys] = useState<string[]>([]);
 
 	useEffect(() => {
-		getSubMenuActive();
-		setMenuActive(pathname);
+		setSelectedKeys([pathname]);
+		setOpenKeys(getOpenKeys(pathname));
 	}, [pathname]);
+
+	// 设置当前展开的 subMenu
+	const onOpenChange = (openKeys: string[]) => {
+		if (openKeys.length === 0 || openKeys.length === 1) return setOpenKeys(openKeys);
+		const latestOpenKey = openKeys[openKeys.length - 1];
+		// 最新展开的 SubMenu
+		if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys);
+		setOpenKeys([latestOpenKey]);
+	};
+	// 点击当前菜单
+	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
+		navigate(key);
+	};
 
 	const menuList = [
 		{
@@ -159,20 +164,6 @@ const LayoutMenu = () => {
 		}
 	];
 
-	const navigate = useNavigate();
-	// 点击当前菜单
-	const clickMenu: MenuProps["onClick"] = e => {
-		navigate(e.key);
-	};
-
-	const [subMenuActive, setSubMenuActive] = useState("");
-
-	// 设置当前展开的 subMenu
-	const openSubMenu = (openKeys: any) => {
-		if (openKeys.length == 0) return setSubMenuActive("");
-		setSubMenuActive(openKeys[1]);
-	};
-
 	return (
 		<div className="menu">
 			<Logo></Logo>
@@ -180,11 +171,11 @@ const LayoutMenu = () => {
 				theme="dark"
 				mode="inline"
 				triggerSubMenuAction="click"
-				openKeys={[subMenuActive]}
-				selectedKeys={[menuActive]}
+				openKeys={openKeys}
+				selectedKeys={selectedKeys}
 				items={menuList}
 				onClick={clickMenu}
-				onOpenChange={openSubMenu}
+				onOpenChange={onOpenChange}
 			></Menu>
 		</div>
 	);

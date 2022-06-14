@@ -31,7 +31,6 @@ const rootRouter: RouteObject[] = [
 				path: "/dataScreen",
 				element: lazyLoad(React.lazy(() => import("@/views/dataScreen/index")))
 			},
-
 			{
 				path: "/proTable/useHooks",
 				element: lazyLoad(React.lazy(() => import("@/views/proTable/useHooks/index")))

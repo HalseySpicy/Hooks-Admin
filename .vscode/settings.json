@@ -1,4 +1,5 @@
 {
+	// 保存自动格式化代码
 	"editor.formatOnSave": true,
 	"stylelint.enable": true,
 	// 开启stylelint自动修复
@@ -17,6 +18,8 @@
 		"cnpm",
 		"commitlint",
 		"doclock",
+		"easymock",
+		"fastmock",
 		"Geeker",
 		"Gitee",
 		"loglevel",
