@@ -1,9 +1,8 @@
-import React from "react";
 import { Button, Result } from "antd";
 import { useNavigate } from "react-router";
 import "./index.scss";
 
-const NotFound: React.FC = () => {
+const NotFound = () => {
 	const navigate = useNavigate();
 	const goHome = () => {
 		navigate("/home");

@@ -1,11 +1,10 @@
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { showFullScreenLoading, tryHideFullScreenLoading } from "@/config/serviceLoading";
-import { AxiosCanceler } from "./helper/axiosCancel";
 import { ResultData } from "@/api/interface";
 import { ResultEnum } from "@/enums/httpEnum";
 import { checkStatus } from "./helper/checkStatus";
+import { AxiosCanceler } from "./helper/axiosCancel";
 import { message } from "antd";
-import { useNavigate } from "react-router";
 // import { store } from "@/redux";
 
 const axiosCanceler = new AxiosCanceler();
@@ -37,7 +36,7 @@ class RequestHttp {
 				// * 如果当前请求不需要显示 loading,在api服务中通过指定的第三个参数: { headers: { noLoading: true } }来控制不显示loading，参见loginApi
 				config.headers!.noLoading || showFullScreenLoading();
 				// const token: string = store.getState().global.token;
-				const token: string = "123456";
+				const token: string = "bqddxxwqmfncffacvbpkuxvwvqrhln";
 				return { ...config, headers: { "x-access-token": token } };
 			},
 			(error: AxiosError) => {
@@ -49,18 +48,16 @@ class RequestHttp {
 		 * @description 响应拦截器
 		 *  服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
 		 */
-
 		this.service.interceptors.response.use(
 			(response: AxiosResponse) => {
 				const { data, config } = response;
-				const navigate = useNavigate();
 				// * 在请求结束后，移除本次请求(关闭loading)
 				axiosCanceler.removePending(config);
 				tryHideFullScreenLoading();
 				// * 登陆失效（code == 599）
 				if (data.code == ResultEnum.OVERDUE) {
 					message.error(data.msg);
-					navigate("/login");
+					window.location.hash = "/login";
 					return Promise.reject(data);
 				}
 				// * 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
@@ -73,12 +70,11 @@ class RequestHttp {
 			},
 			async (error: AxiosError) => {
 				const { response } = error;
-				const navigate = useNavigate();
 				tryHideFullScreenLoading();
 				// 根据响应的错误状态码，做不同的处理
 				if (response) return checkStatus(response.status);
 				// 服务器结果都没有返回(可能服务器错误可能客户端断网) 断网处理:可以跳转到断网页面
-				if (!window.navigator.onLine) return navigate("/500");
+				if (!window.navigator.onLine) return (window.location.hash = "/500");
 				return Promise.reject(error);
 			}
 		);
