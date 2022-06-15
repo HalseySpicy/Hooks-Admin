@@ -17,7 +17,7 @@
 		justify-content: space-around;
 		width: 96%;
 		height: 94%;
-		padding: 0 4% 0 30px;
+		padding: 0 4% 0 20px;
 		overflow: hidden;
 		background-color: hsl(0deg 0% 100% / 80%);
 		border-radius: 10px;
@@ -29,7 +29,7 @@
 			}
 		}
 		.login-form {
-			padding: 50px 40px 45px;
+			padding: 40px 45px 25px;
 			background-color: rgba(255 255 255 / 98%);
 			border-radius: 10px;
 			box-shadow: 2px 3px 7px rgb(0 0 0 / 20%);
@@ -37,7 +37,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin-bottom: 45px;
+				margin-bottom: 40px;
 				.login-icon {
 					width: 70px;
 				}
@@ -49,25 +49,38 @@
 					white-space: nowrap;
 				}
 			}
-			.ant-input-prefix {
-				margin-right: 10px;
-			}
-			.ant-input-affix-wrapper {
-				font-size: 14px;
-				color: #b3b6bc;
-			}
-			.ant-input-lg {
-				font-size: 14px;
+			.ant-form-item {
+				height: 75px;
+				margin-bottom: 0;
+				.ant-input-prefix {
+					margin-right: 10px;
+				}
+				.ant-input-affix-wrapper-lg {
+					// padding: 8.3px 11px;
+				}
+				.ant-input-affix-wrapper,
+				.ant-input-lg {
+					font-size: 14px;
+				}
+				.ant-input-affix-wrapper {
+					color: #bfbfbf;
+				}
 			}
 			.login-btn {
 				width: 100%;
-				margin-top: 40px;
+				margin-top: 10px;
 				white-space: nowrap;
 				.ant-form-item-control-input-content {
 					display: flex;
 					justify-content: space-between;
 					.ant-btn {
 						width: 180px;
+						span {
+							font-size: 14px;
+						}
+					}
+					.ant-btn-default {
+						color: #606266;
 					}
 				}
 			}
