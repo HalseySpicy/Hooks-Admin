@@ -35,6 +35,7 @@ const LayoutMenu = () => {
 		if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys);
 		setOpenKeys([latestOpenKey]);
 	};
+
 	// 点击当前菜单
 	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
 		navigate(key);
@@ -44,7 +45,6 @@ const LayoutMenu = () => {
 		{
 			label: "首页",
 			key: "/home",
-			danger: false,
 			icon: <HomeOutlined />
 		},
 		{

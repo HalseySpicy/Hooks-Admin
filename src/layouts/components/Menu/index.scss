@@ -21,11 +21,9 @@
 			white-space: nowrap;
 		}
 	}
-	.ant-menu {
+	.ant-menu-root {
 		flex: 1;
-		overflow: auto;
-		.ant-menu-sub {
-			overflow-y: hidden;
-		}
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 }
