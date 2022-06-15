@@ -1,13 +1,16 @@
-.ant-spin-text {
-	margin-top: 5px;
-	font-size: 18px;
-	color: #509ff1;
-}
-.ant-spin-dot-item {
-	background-color: #509ff1;
+// * 请求 Loading 样式
+.request-loading {
+	.ant-spin-text {
+		margin-top: 5px;
+		font-size: 18px;
+		color: #509ff1;
+	}
+	.ant-spin-dot-item {
+		background-color: #509ff1;
+	}
 }
 
-// * Loading
+// * 请求 Loading 遮罩层样式
 #loading {
 	position: fixed;
 	top: 0;
