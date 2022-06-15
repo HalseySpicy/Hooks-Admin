@@ -26,29 +26,47 @@ const AvatarIcon = () => {
 			cancelText: "取消",
 			onOk: () => {
 				message.success("退出登录成功！");
+				navigate("/login");
 			}
 		});
 	};
+
 	const menu = (
 		<Menu
 			items={[
 				{
-					label: <span onClick={goHome}>首页</span>,
+					label: (
+						<span className="dropdown-item" onClick={goHome}>
+							首页
+						</span>
+					),
 					key: "0"
 				},
 				{
-					label: <span onClick={() => infoRef.current.showModal({ name: 11 })}>个人信息</span>,
+					label: (
+						<span className="dropdown-item" onClick={() => infoRef.current.showModal({ name: 11 })}>
+							个人信息
+						</span>
+					),
 					key: "1"
 				},
 				{
-					label: <span onClick={() => passRef.current.showModal({ name: 11 })}>修改密码</span>,
+					label: (
+						<span className="dropdown-item" onClick={() => passRef.current.showModal({ name: 11 })}>
+							修改密码
+						</span>
+					),
 					key: "3"
 				},
 				{
 					type: "divider"
 				},
 				{
-					label: <span onClick={logout}>退出登录</span>,
+					label: (
+						<span className="dropdown-item" onClick={logout}>
+							退出登录
+						</span>
+					),
 					key: "4"
 				}
 			]}
