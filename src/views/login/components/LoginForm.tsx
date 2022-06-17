@@ -1,9 +1,10 @@
 import md5 from "js-md5";
 import { useState } from "react";
 import { Button, Form, Input, message } from "antd";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Login } from "@/api/interface";
 import { loginApi } from "@/api/modules/login";
+import { HOME_URL } from "@/config/config";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 const LoginForm = () => {
@@ -17,7 +18,7 @@ const LoginForm = () => {
 			loginForm.password = md5(loginForm.password);
 			await loginApi(loginForm);
 			message.success("登录成功！");
-			navigate("/home");
+			navigate(HOME_URL);
 		} finally {
 			setLoading(false);
 		}
