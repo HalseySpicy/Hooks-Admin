@@ -1,6 +1,7 @@
 .container {
 	// 防止页面切换闪屏
 	display: flex;
+	min-width: 800px;
 	height: 100%;
 	.ant-layout-sider {
 		& ::-webkit-scrollbar {

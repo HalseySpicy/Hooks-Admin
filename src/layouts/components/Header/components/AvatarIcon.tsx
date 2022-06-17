@@ -4,6 +4,7 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import PasswordModal from "./PasswordModal";
 import InfoModal from "./InfoModal";
+import { HOME_URL } from "@/config/config";
 import avatar from "@/assets/images/avatar.png";
 
 const AvatarIcon = () => {
@@ -11,10 +12,10 @@ const AvatarIcon = () => {
 	interface ModalProps {
 		showModal: (params: { name: number }) => void;
 	}
-	const passRef = useRef<ModalProps>(null!);
-	const infoRef = useRef<ModalProps>(null!);
+	const passRef = useRef<ModalProps>(null);
+	const infoRef = useRef<ModalProps>(null);
 	const goHome = () => {
-		navigate("/home");
+		navigate(HOME_URL);
 	};
 
 	const logout = () => {
@@ -44,7 +45,7 @@ const AvatarIcon = () => {
 				},
 				{
 					label: (
-						<span className="dropdown-item" onClick={() => infoRef.current.showModal({ name: 11 })}>
+						<span className="dropdown-item" onClick={() => infoRef.current!.showModal({ name: 11 })}>
 							个人信息
 						</span>
 					),
@@ -52,7 +53,7 @@ const AvatarIcon = () => {
 				},
 				{
 					label: (
-						<span className="dropdown-item" onClick={() => passRef.current.showModal({ name: 11 })}>
+						<span className="dropdown-item" onClick={() => passRef.current!.showModal({ name: 11 })}>
 							修改密码
 						</span>
 					),
@@ -75,7 +76,7 @@ const AvatarIcon = () => {
 	return (
 		<>
 			<Dropdown overlay={menu} placement="bottom" arrow trigger={["click"]}>
-				<Avatar src={avatar} />
+				<Avatar size="large" src={avatar} />
 			</Dropdown>
 			<InfoModal innerRef={infoRef}></InfoModal>
 			<PasswordModal innerRef={passRef}></PasswordModal>

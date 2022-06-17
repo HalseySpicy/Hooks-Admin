@@ -19,6 +19,11 @@
 	.header-ri {
 		display: flex;
 		align-items: center;
+		.icon-style {
+			margin-right: 22px;
+			font-size: 21px;
+			color: #626262;
+		}
 		.username {
 			margin: 0 20px 0 0;
 			font-size: 15px;
