@@ -1,10 +1,18 @@
-import React from "react";
-import { useRoutes, Navigate, RouteObject } from "react-router-dom";
-import lazyLoad from "./lazyLoad";
-
-// * login 和 layout 没必要使用懒加载
+import { useRoutes, Navigate } from "react-router-dom";
+import { RouteObject } from "@/routers/interface";
+// * login 和 layout 页没必要使用懒加载
 import Login from "@/views/login/index";
-import LayoutIndex from "@/layouts/index";
+
+// * 导入所有router
+const metaRouters = import.meta.globEager("./modules/*.tsx");
+
+// * 处理路由
+export const routerArray: RouteObject[] = [];
+Object.keys(metaRouters).forEach(item => {
+	Object.keys(metaRouters[item]).forEach((key: any) => {
+		routerArray.push(...metaRouters[item][key]);
+	});
+});
 
 const rootRouter: RouteObject[] = [
 	{
@@ -13,48 +21,14 @@ const rootRouter: RouteObject[] = [
 	},
 	{
 		path: "/login",
-		element: <Login />
-		// element: lazyLoad(React.lazy(() => import("@/views/login/index"))),
+		element: <Login />,
+		meta: {
+			requiresAuth: false,
+			title: "登录页",
+			key: "login"
+		}
 	},
-	{
-		element: <LayoutIndex />,
-		// element: lazyLoad(React.lazy(() => import("@/layouts/index"))),
-		children: [
-			{
-				path: "/home/index",
-				element: lazyLoad(React.lazy(() => import("@/views/home/index")))
-			},
-			{
-				path: "/dataScreen",
-				element: lazyLoad(React.lazy(() => import("@/views/dataScreen/index")))
-			},
-			{
-				path: "/proTable/useHooks",
-				element: lazyLoad(React.lazy(() => import("@/views/proTable/useHooks/index")))
-			},
-			{
-				path: "/proTable/useComponent",
-				element: lazyLoad(React.lazy(() => import("@/views/proTable/useComponent/index")))
-			},
-
-			{
-				path: "/dashboard/dataVisualize",
-				element: lazyLoad(React.lazy(() => import("@/views/dashboard/dataVisualize/index")))
-			}
-		]
-	},
-	{
-		path: "/404",
-		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/404")))
-	},
-	{
-		path: "/403",
-		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/403")))
-	},
-	{
-		path: "/500",
-		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/500")))
-	},
+	...routerArray,
 	{
 		path: "*",
 		element: <Navigate to="/404" />

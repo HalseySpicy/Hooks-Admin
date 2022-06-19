@@ -29,6 +29,10 @@ const LayoutTabs = () => {
 		{
 			title: "数据可视化",
 			path: "/dashboard/dataVisualize"
+		},
+		{
+			title: "内嵌页面",
+			path: "/dashboard/embedded"
 		}
 	]);
 
