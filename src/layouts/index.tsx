@@ -5,7 +5,7 @@ import LayoutMenu from "./components/Menu";
 import LayoutHeader from "./components/Header";
 import LayoutTabs from "./components/Tabs";
 import LayoutFooter from "./components/Footer";
-import "./index.scss";
+import "./index.less";
 
 const { Sider, Content } = Layout;
 

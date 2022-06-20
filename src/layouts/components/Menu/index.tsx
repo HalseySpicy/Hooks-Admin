@@ -6,7 +6,7 @@ import { getMenuList } from "@/api/modules/login";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
-import "./index.scss";
+import "./index.less";
 
 const LayoutMenu = () => {
 	// 刷新页面菜单保持高亮

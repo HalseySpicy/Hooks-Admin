@@ -1,6 +1,6 @@
 import { useRoutes, Navigate } from "react-router-dom";
 import { RouteObject } from "@/routers/interface";
-// * login 和 layout 页没必要使用懒加载
+// login 和 layout 页没必要使用懒加载
 import Login from "@/views/login/index";
 
 // * 导入所有router
@@ -14,7 +14,7 @@ Object.keys(metaRouters).forEach(item => {
 	});
 });
 
-const rootRouter: RouteObject[] = [
+export const rootRouter: RouteObject[] = [
 	{
 		path: "/",
 		element: <Navigate to="/login" />

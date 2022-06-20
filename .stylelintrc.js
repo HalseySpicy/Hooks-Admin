@@ -4,9 +4,9 @@ module.exports = {
 	extends: [
 		"stylelint-config-standard", // 配置stylelint拓展插件
 		"stylelint-config-prettier", // 配置stylelint和prettier兼容
-		"stylelint-config-recess-order", // 配置stylelint css属性书写顺序插件,
-		"stylelint-config-standard-scss" // 配置stylelint scss插件
+		"stylelint-config-recess-order" // 配置stylelint css属性书写顺序插件,
 	],
+	plugins: ["stylelint-less"], // 配置stylelint less拓展插件
 	rules: {
 		indentation: null, // 指定缩进空格
 		"no-descending-specificity": null, // 禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器
@@ -23,6 +23,7 @@ module.exports = {
 		"declaration-block-trailing-semicolon": null, // 要求或不允许在声明块中使用尾随分号 string："always(必须始终有一个尾随分号)"|"never(不得有尾随分号)"
 		"selector-class-pattern": null, // 强制选择器类名的格式
 		"value-no-vendor-prefix": null, // 关闭 vendor-prefix(为了解决多行省略 -webkit-box)
+		"at-rule-no-unknown": null,
 		"selector-pseudo-class-no-unknown": [
 			true,
 			{

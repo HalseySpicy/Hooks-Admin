@@ -6,7 +6,7 @@ import AssemblySize from "./components/AssemblySize";
 import Language from "./components/Language";
 import Theme from "./components/Theme";
 import Fullscreen from "./components/Fullscreen";
-import "./index.scss";
+import "./index.less";
 
 const { Header } = Layout;
 

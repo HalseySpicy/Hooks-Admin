@@ -3,7 +3,7 @@ import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
-import "./index.scss";
+import "./index.less";
 
 const LayoutTabs = () => {
 	const { TabPane } = Tabs;

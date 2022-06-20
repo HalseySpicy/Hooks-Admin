@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import welcome from "@/assets/images/welcome.png";
-import "./index.scss";
+import "./index.less";
 
 const Home = () => {
 	const location = useLocation();

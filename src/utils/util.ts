@@ -22,13 +22,26 @@ export const getOpenKeys = (path: string) => {
  * @param {Array} routes 路由列表
  * @returns array
  */
-export const searchRouteDetail = (path: string, routes: RouteObject[]): RouteObject | null => {
-	let result: any;
-	for (let item of routes || []) {
-		if (item.path === path) return (result = item);
-		const res = searchRouteDetail(path, item.children!);
-		if (res) result = res;
-	}
+export const searchRouteDetail = (path: string, routes: RouteObject[]): string[] => {
+	let result: string[] = [];
+	// for (let item of routes || []) {
+	// 	if (item.path === path) return (result = item);
+	// 	const res = searchRouteDetail(path, item.children!);
+	// 	if (res) result = res;
+	// }
+	routes.forEach(item => {
+		if (item.path === path) {
+			result.push(item.meta!.title);
+		} else {
+			if (item.children && item.children.length > 0) {
+				item.children.forEach(i => {
+					if (i.path === path) {
+						result.push(item.meta!.title, i.meta!.title);
+					}
+				});
+			}
+		}
+	});
 	return result;
 };
 

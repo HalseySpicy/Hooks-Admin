@@ -21,8 +21,8 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 		// global css
 		css: {
 			preprocessorOptions: {
-				scss: {
-					additionalData: `@import "@/styles/var.scss";`
+				less: {
+					additionalData: `@import "@/styles/var.less";`
 				}
 			}
 		},

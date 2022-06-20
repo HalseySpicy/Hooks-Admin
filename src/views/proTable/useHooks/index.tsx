@@ -1,6 +1,15 @@
-import "./index.scss";
+import "./index.less";
 import { Table } from "antd";
-const UseHooks02 = () => {
+import { useLocation } from "react-router-dom";
+import { rootRouter } from "@/routers/index";
+import { searchRouteDetail } from "@/utils/util";
+
+const UseHooks = () => {
+	const location = useLocation();
+
+	const res = searchRouteDetail(location.pathname, rootRouter);
+	console.log(res);
+
 	const dataSource = [
 		{
 			key: "1",
@@ -36,4 +45,4 @@ const UseHooks02 = () => {
 	return <Table dataSource={dataSource} columns={columns} />;
 };
 
-export default UseHooks02;
+export default UseHooks;
