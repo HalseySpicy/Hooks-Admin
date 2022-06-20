@@ -6,11 +6,7 @@ import { RouteObject } from "@/routers/interface";
 // dashboard 模块
 const dashboardRouter: Array<RouteObject> = [
 	{
-		path: "/dashboard",
-		element: <LayoutIndex />,
-		meta: {
-			title: "Dashboard"
-		},
+		element: <LayoutIndex title={"Dashboard"} />,
 		children: [
 			{
 				path: "/dashboard/dataVisualize",

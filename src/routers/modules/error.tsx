@@ -8,6 +8,7 @@ const errorRouter: Array<RouteObject> = [
 		path: "/403",
 		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/403"))),
 		meta: {
+			keepAlive: true,
 			requiresAuth: true,
 			title: "403页面",
 			key: "403"
@@ -17,6 +18,7 @@ const errorRouter: Array<RouteObject> = [
 		path: "/404",
 		element: lazyLoad(React.lazy(() => import("@/components/ErrorMessage/404"))),
 		meta: {
+			keepAlive: true,
 			requiresAuth: false,
 			title: "404页面",
 			key: "404"
