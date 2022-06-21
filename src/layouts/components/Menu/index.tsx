@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
 import { getOpenKeys } from "@/utils/util";
+import { connect } from "react-redux";
+import { updateCollapse } from "@/redux/modules/menu/action";
 import { getMenuList } from "@/api/modules/login";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
 import "./index.less";
 
-const LayoutMenu = () => {
+const LayoutMenu = (props: any) => {
 	// 刷新页面菜单保持高亮
 	const { pathname } = useLocation();
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
 	useEffect(() => {
 		setSelectedKeys([pathname]);
-		setOpenKeys(getOpenKeys(pathname));
-	}, [pathname]);
+		props.isCollapse ? null : setOpenKeys(getOpenKeys(pathname));
+	}, [pathname, props.isCollapse]);
 
 	// 设置当前展开的 subMenu
 	const onOpenChange = (openKeys: string[]) => {
@@ -101,4 +103,6 @@ const LayoutMenu = () => {
 	);
 };
 
-export default LayoutMenu;
+const mapDispatchToProps = { updateCollapse };
+const mapStateToProps = (state: any) => state.menu;
+export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);

@@ -1,6 +1,9 @@
-import { FullscreenOutlined } from "@ant-design/icons";
-
+import { Tooltip } from "antd";
 const Fullscreen = () => {
-	return <FullscreenOutlined className="icon-style" />;
+	return (
+		<Tooltip placement="bottom" title={"全屏"}>
+			<i className="icon-style iconfont icon-fangda"></i>
+		</Tooltip>
+	);
 };
 export default Fullscreen;
