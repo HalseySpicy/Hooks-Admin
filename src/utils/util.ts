@@ -35,6 +35,40 @@ export const searchRoute = (path: string, routes: RouteObject[] = []): RouteObje
 };
 
 /**
+ * @description 递归当前路由的所有关联路由，生成面包屑导航栏
+ * @param {String} path 当前访问地址
+ * @param {Array} menuList 菜单列表
+ * @returns array
+ */
+export const getBreadcrumbList = (path: string, menuList: Menu.MenuOptions[]) => {
+	let tempPath: any[] = [];
+	try {
+		const getNodePath = (node: Menu.MenuOptions) => {
+			tempPath.push(node);
+			// 找到符合条件的节点，通过throw终止掉递归
+			if (node.path === path) {
+				throw new Error("GOT IT!");
+			}
+			if (node.children && node.children.length > 0) {
+				for (let i = 0; i < node.children.length; i++) {
+					getNodePath(node.children[i]);
+				}
+				// 当前节点的子节点遍历完依旧没找到，则删除路径中的该节点
+				tempPath.pop();
+			} else {
+				// 找到叶子节点时，删除路径当中的该叶子节点
+				tempPath.pop();
+			}
+		};
+		for (let i = 0; i < menuList.length; i++) {
+			getNodePath(menuList[i]);
+		}
+	} catch (e) {
+		return tempPath.map(item => item.title);
+	}
+};
+
+/**
  * @description 判断数据类型
  * @param {Any} val 需要判断类型的数据
  * @return string

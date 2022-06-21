@@ -1,11 +1,20 @@
-import { MenuFoldOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { connect } from "react-redux";
+import { updateCollapse } from "@/redux/modules/menu/action";
 
-const CollapseIcon = () => {
+const CollapseIcon = (props: any) => {
 	return (
-		<div className="collapsed">
-			<MenuFoldOutlined />
+		<div
+			className="collapsed"
+			onClick={() => {
+				props.updateCollapse();
+			}}
+		>
+			{props.isCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 		</div>
 	);
 };
 
-export default CollapseIcon;
+const mapDispatchToProps = { updateCollapse };
+const mapStateToProps = (state: any) => state.menu;
+export default connect(mapStateToProps, mapDispatchToProps)(CollapseIcon);
