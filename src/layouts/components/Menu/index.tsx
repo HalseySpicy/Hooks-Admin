@@ -28,12 +28,6 @@ const LayoutMenu = (props: any) => {
 		setOpenKeys([latestOpenKey]);
 	};
 
-	// 点击当前菜单跳转
-	const navigate = useNavigate();
-	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
-		navigate(key);
-	};
-
 	// 定义 menu 类型
 	type MenuItem = Required<MenuProps>["items"][number];
 	const getItem = (
@@ -77,7 +71,7 @@ const LayoutMenu = (props: any) => {
 			const { data } = await getMenuList();
 			if (!data) return;
 			setMenuList(deepLoopFloat(data));
-			// props.setMenuList(deepLoopFloat(data));
+			// props.setMenuList(data);
 		} finally {
 			setLoading(false);
 		}
@@ -85,6 +79,13 @@ const LayoutMenu = (props: any) => {
 	useEffect(() => {
 		getMenuData();
 	}, []);
+
+	// 点击当前菜单跳转
+	const navigate = useNavigate();
+	const clickMenu: MenuProps["onClick"] = e => {
+		navigate(e.key);
+	};
+
 	return (
 		<div className="menu">
 			<Spin spinning={loading} tip="Loading...">

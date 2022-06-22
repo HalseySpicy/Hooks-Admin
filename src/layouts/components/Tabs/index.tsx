@@ -3,40 +3,20 @@ import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
+import { connect } from "react-redux";
+import { addTabs } from "@/redux/modules/tabs/action";
+import { routerArray } from "@/routers";
+import { searchRoute } from "@/utils/util";
 import "./index.less";
 
-const LayoutTabs = () => {
+const LayoutTabs = (props: any) => {
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const [activeValue, setActiveValue] = useState<string>(pathname);
-	const [tabsList] = useState([
-		{
-			title: "首页",
-			path: HOME_URL
-		},
-		{
-			title: "数据大屏",
-			path: "/dataScreen/index"
-		},
-		{
-			title: "使用 Hooks",
-			path: "/proTable/useHooks"
-		},
-		{
-			title: "使用 Component",
-			path: "/proTable/useComponent"
-		},
-		{
-			title: "数据可视化",
-			path: "/dashboard/dataVisualize"
-		},
-		{
-			title: "内嵌页面",
-			path: "/dashboard/embedded"
-		}
-	]);
 
 	useEffect(() => {
+		const route = searchRoute(pathname, routerArray);
+		props.addTabs({ title: route.meta!.title, path: route.path });
 		setActiveValue(pathname);
 	}, [pathname]);
 
@@ -61,7 +41,7 @@ const LayoutTabs = () => {
 				delTabs(path as string);
 			}}
 		>
-			{tabsList.map((item: Menu.MenuOptions) => {
+			{props.tabsList.map((item: Menu.MenuOptions) => {
 				return (
 					<TabPane
 						key={item.path}
@@ -79,4 +59,6 @@ const LayoutTabs = () => {
 	);
 };
 
-export default LayoutTabs;
+const mapStateToProps = (state: any) => state.tabs;
+const mapDispatchToProps = { addTabs };
+export default connect(mapStateToProps, mapDispatchToProps)(LayoutTabs);
