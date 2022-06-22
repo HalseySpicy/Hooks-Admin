@@ -18,11 +18,14 @@
 		"browserslist",
 		"cnpm",
 		"commitlint",
+		"contentright",
 		"doclock",
 		"easymock",
+		"fangda",
 		"fastmock",
 		"Geeker",
 		"Gitee",
+		"iconfont",
 		"immer",
 		"juejin",
 		"loglevel",
@@ -31,6 +34,8 @@
 		"Sider",
 		"styl",
 		"stylelint",
-		"truetype"
+		"truetype",
+		"zhongyingwen",
+		"zhuti"
 	]
 }

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
 import { getOpenKeys } from "@/utils/util";
 import { connect } from "react-redux";
-import { updateCollapse } from "@/redux/modules/menu/action";
+import { setMenuList } from "@/redux/modules/menu/action";
 import { getMenuList } from "@/api/modules/login";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
@@ -28,6 +28,12 @@ const LayoutMenu = (props: any) => {
 		setOpenKeys([latestOpenKey]);
 	};
 
+	// 点击当前菜单跳转
+	const navigate = useNavigate();
+	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
+		navigate(key);
+	};
+
 	// 定义 menu 类型
 	type MenuItem = Required<MenuProps>["items"][number];
 	const getItem = (
@@ -46,28 +52,6 @@ const LayoutMenu = (props: any) => {
 		} as MenuItem;
 	};
 
-	// 获取菜单列表并处理成 antd menu 需要的格式
-	const [menuList, setMenuList] = useState<MenuItem[]>([]);
-	const [loading, setLoading] = useState(false);
-	const getMenuData = async () => {
-		setLoading(true);
-		try {
-			const { data } = await getMenuList();
-			data && setMenuList(deepLoopFloat(data));
-		} finally {
-			setLoading(false);
-		}
-	};
-	useEffect(() => {
-		getMenuData();
-	}, []);
-
-	// 点击当前菜单跳转
-	const navigate = useNavigate();
-	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
-		navigate(key);
-	};
-
 	// 动态渲染 Icon
 	const customIcons: { [key: string]: any } = Icons;
 	const addIcon = (name: string) => {
@@ -84,6 +68,23 @@ const LayoutMenu = (props: any) => {
 		return newArr;
 	};
 
+	// 获取菜单列表并处理成 antd menu 需要的格式
+	const [menuList, setMenuList] = useState<MenuItem[]>([]);
+	const [loading, setLoading] = useState(false);
+	const getMenuData = async () => {
+		setLoading(true);
+		try {
+			const { data } = await getMenuList();
+			if (!data) return;
+			setMenuList(deepLoopFloat(data));
+			// props.setMenuList(deepLoopFloat(data));
+		} finally {
+			setLoading(false);
+		}
+	};
+	useEffect(() => {
+		getMenuData();
+	}, []);
 	return (
 		<div className="menu">
 			<Spin spinning={loading} tip="Loading...">
@@ -103,6 +104,6 @@ const LayoutMenu = (props: any) => {
 	);
 };
 
-const mapDispatchToProps = { updateCollapse };
 const mapStateToProps = (state: any) => state.menu;
+const mapDispatchToProps = { setMenuList };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);

@@ -1,7 +1,7 @@
 import { legacy_createStore as createStore, combineReducers, Store, compose } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
+import { applyMiddleware } from "redux";
 import storage from "redux-persist/lib/storage";
-import { applyMiddleware } from "redux"; // 应用中间件方法
 import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
 import menu from "./modules/menu/reducer";
