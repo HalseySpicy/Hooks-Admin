@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
-import { getOpenKeys } from "@/utils/util";
+import { findAllBreadcrumb, getOpenKeys } from "@/utils/util";
 import { connect } from "react-redux";
 import { setMenuList } from "@/redux/modules/menu/action";
+import { setBreadcrumbList } from "@/redux/modules/breadcrumb/action";
 import { getMenuList } from "@/api/modules/login";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
@@ -11,10 +12,10 @@ import Logo from "./components/Logo";
 import "./index.less";
 
 const LayoutMenu = (props: any) => {
-	// 刷新页面菜单保持高亮
 	const { pathname } = useLocation();
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
+	// 刷新页面菜单保持高亮
 	useEffect(() => {
 		setSelectedKeys([pathname]);
 		props.isCollapse ? null : setOpenKeys(getOpenKeys(pathname));
@@ -46,7 +47,7 @@ const LayoutMenu = (props: any) => {
 		} as MenuItem;
 	};
 
-	// 动态渲染 Icon
+	// 动态渲染 Icon 图标
 	const customIcons: { [key: string]: any } = Icons;
 	const addIcon = (name: string) => {
 		return React.createElement(customIcons[name]);
@@ -71,6 +72,8 @@ const LayoutMenu = (props: any) => {
 			const { data } = await getMenuList();
 			if (!data) return;
 			setMenuList(deepLoopFloat(data));
+			// 存储处理过后的所有面包屑导航栏到 redux 中
+			props.setBreadcrumbList(findAllBreadcrumb(data));
 			// props.setMenuList(data);
 		} finally {
 			setLoading(false);
@@ -80,10 +83,10 @@ const LayoutMenu = (props: any) => {
 		getMenuData();
 	}, []);
 
-	// 点击当前菜单跳转
+	// 点击当前菜单跳转页面
 	const navigate = useNavigate();
-	const clickMenu: MenuProps["onClick"] = e => {
-		navigate(e.key);
+	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
+		navigate(key);
 	};
 
 	return (
@@ -106,5 +109,5 @@ const LayoutMenu = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setMenuList };
+const mapDispatchToProps = { setMenuList, setBreadcrumbList };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);

@@ -25,7 +25,6 @@ import App from "@/App";
 ReactDOM.render(
 	// * react严格模式
 	// <React.StrictMode>
-	// * react-redux写法
 	<Provider store={store}>
 		<PersistGate persistor={persistor}>
 			<App />
