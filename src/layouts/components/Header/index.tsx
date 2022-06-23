@@ -8,9 +8,9 @@ import Theme from "./components/Theme";
 import Fullscreen from "./components/Fullscreen";
 import "./index.less";
 
-const { Header } = Layout;
-
 const LayoutHeader = () => {
+	const { Header } = Layout;
+
 	return (
 		<Header>
 			<div className="header-lf">
