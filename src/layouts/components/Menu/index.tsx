@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
-import { findAllBreadcrumb, getOpenKeys } from "@/utils/util";
-import { connect } from "react-redux";
+import { findAllBreadcrumb, getOpenKeys, handleRouter } from "@/utils/util";
 import { setMenuList } from "@/redux/modules/menu/action";
 import { setBreadcrumbList } from "@/redux/modules/breadcrumb/action";
+import { setAuthRouter } from "@/redux/modules/auth/action";
 import { getMenuList } from "@/api/modules/login";
+import { connect } from "react-redux";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
@@ -74,7 +75,9 @@ const LayoutMenu = (props: any) => {
 			setMenuList(deepLoopFloat(data));
 			// 存储处理过后的所有面包屑导航栏到 redux 中
 			props.setBreadcrumbList(findAllBreadcrumb(data));
-			// props.setMenuList(data);
+			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
+			const dynamicRouter = handleRouter(data);
+			props.setAuthRouter(dynamicRouter);
 		} finally {
 			setLoading(false);
 		}
@@ -109,5 +112,5 @@ const LayoutMenu = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setMenuList, setBreadcrumbList };
+const mapDispatchToProps = { setMenuList, setBreadcrumbList, setAuthRouter };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);

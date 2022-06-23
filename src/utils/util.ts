@@ -85,6 +85,20 @@ export const findAllBreadcrumb = (menuList: Menu.MenuOptions[]): { [key: string]
 };
 
 /**
+ * @description 使用递归处理路由菜单，生成一维数组，做菜单权限判断
+ * @param {Array} menuList 所有菜单列表
+ * @param {Array} newArr 菜单的一维数组
+ * @return array
+ */
+export function handleRouter(routerList: Menu.MenuOptions[], newArr: string[] = []) {
+	routerList.forEach((item: Menu.MenuOptions) => {
+		typeof item === "object" && item.path && newArr.push(item.path);
+		item.children && item.children.length && handleRouter(item.children, newArr);
+	});
+	return newArr;
+}
+
+/**
  * @description 判断数据类型
  * @param {Any} val 需要判断类型的数据
  * @return string

@@ -1,10 +1,11 @@
-import Router from "@/routers/index";
+import { RouterGuard } from "@/routers/routerGuard";
 import { HashRouter } from "react-router-dom";
+import rootRouter from "@/routers/index";
 
 const App = () => {
 	return (
 		<HashRouter>
-			<Router />
+			<RouterGuard routes={rootRouter} />
 		</HashRouter>
 	);
 };
