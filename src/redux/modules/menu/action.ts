@@ -3,8 +3,9 @@ import { getMenuList } from "@/api/modules/login";
 import { Dispatch } from "react";
 
 // * updateCollapse
-export const updateCollapse = () => ({
-	type: types.UPDATE_COLLAPSE
+export const updateCollapse = (isCollapse: boolean) => ({
+	type: types.UPDATE_COLLAPSE,
+	isCollapse
 });
 
 // * setMenuList
