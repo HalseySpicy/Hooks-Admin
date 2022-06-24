@@ -45,7 +45,7 @@ const LayoutTabs = (props: any) => {
 				navigate(nextTab.path);
 			});
 		}
-		message.success("删除Tabs标签 😆😆😆");
+		message.success("你删除了Tabs标签 😆😆😆");
 		props.setTabsList(props.tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath));
 	};
 

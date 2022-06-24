@@ -1,5 +1,5 @@
 import Layout from "@/layouts/index";
-import AuthRouter from "@/routers/authRouter";
+import AuthRouter from "@/routers/util/authRouter";
 
 /**
  * @description: default layout

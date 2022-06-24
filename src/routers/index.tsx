@@ -1,6 +1,5 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { RouteObject } from "@/routers/interface";
-// login 和 layout 页没必要使用懒加载
 import Login from "@/views/login/index";
 
 // * 导入所有router
