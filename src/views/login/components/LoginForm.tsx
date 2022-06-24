@@ -7,6 +7,7 @@ import { loginApi } from "@/api/modules/login";
 import { HOME_URL } from "@/config/config";
 import { connect } from "react-redux";
 import { setToken } from "@/redux/modules/global/action";
+import { setTabsList } from "@/redux/modules/tabs/action";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 const LoginForm = (props: any) => {
@@ -21,6 +22,7 @@ const LoginForm = (props: any) => {
 			loginForm.password = md5(loginForm.password);
 			const { data } = await loginApi(loginForm);
 			props.setToken(data?.access_token);
+			props.setTabsList([]);
 			message.success("登录成功！");
 			navigate(HOME_URL);
 		} finally {
@@ -66,5 +68,5 @@ const LoginForm = (props: any) => {
 	);
 };
 
-const mapDispatchToProps = { setToken };
+const mapDispatchToProps = { setToken, setTabsList };
 export default connect(null, mapDispatchToProps)(LoginForm);
