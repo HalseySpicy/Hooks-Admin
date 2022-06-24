@@ -1,6 +1,6 @@
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
 import { setAuthButtons } from "@/redux/modules/auth/action";
 import { updateCollapse } from "@/redux/modules/menu/action";
@@ -14,10 +14,9 @@ import "./index.less";
 
 const LayoutIndex = (props: any) => {
 	const { Sider, Content } = Layout;
-	const { pathname } = useLocation();
 
 	// 获取按钮权限列表
-	const getAuthButtonsData = async () => {
+	const getAuthButtonsList = async () => {
 		const { data } = await getAuthorButtons();
 		props.setAuthButtons(data);
 	};
@@ -35,7 +34,7 @@ const LayoutIndex = (props: any) => {
 
 	useEffect(() => {
 		listeningWindow();
-		getAuthButtonsData();
+		getAuthButtonsList();
 	}, []);
 
 	return (
@@ -48,13 +47,13 @@ const LayoutIndex = (props: any) => {
 				<LayoutHeader></LayoutHeader>
 				<LayoutTabs></LayoutTabs>
 				<Content>
-					{/* TransitionGroup 会导致 useEffect 加载两次，后期在解决 */}
-					<TransitionGroup className="content">
-						{/* exit：表示退出当前页面的时候是否有动画 */}
-						<CSSTransition key={pathname} timeout={200} classNames="fade" exit={false}>
-							<Outlet></Outlet>
-						</CSSTransition>
-					</TransitionGroup>
+					{/* TransitionGroup 会导致 useEffect 加载两次，后期在解决 && 使用路由懒加载第一次进入没有动画 */}
+					{/* <TransitionGroup className="content"> */}
+					{/* exit：表示退出当前页面的时候是否有动画 */}
+					{/* <CSSTransition key={pathname} timeout={200} classNames="fade" exit={false}> */}
+					<Outlet></Outlet>
+					{/* </CSSTransition> */}
+					{/* </TransitionGroup> */}
 				</Content>
 				<LayoutFooter></LayoutFooter>
 			</Layout>

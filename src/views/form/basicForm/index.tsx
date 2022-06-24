@@ -1,7 +1,11 @@
 import "./index.less";
 
 const BasicForm = () => {
-	return <span>BasicForm</span>;
+	return (
+		<div className="content-box">
+			<span className="text">BasicForm 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default BasicForm;

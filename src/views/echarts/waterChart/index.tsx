@@ -1,7 +1,11 @@
 import "./index.less";
 
 const WaterChart = () => {
-	return <span>WaterChart</span>;
+	return (
+		<div className="content-box">
+			<span className="text">WaterChart 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default WaterChart;

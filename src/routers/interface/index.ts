@@ -12,4 +12,5 @@ export interface RouteObject {
 	index?: boolean;
 	path?: string;
 	meta?: MetaProps;
+	isLink?: string;
 }

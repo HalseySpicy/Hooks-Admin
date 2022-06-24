@@ -1,7 +1,11 @@
 import "./index.less";
 
 const LineChart = () => {
-	return <span>LineChart</span>;
+	return (
+		<div className="content-box">
+			<span className="text">LineChart 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default LineChart;

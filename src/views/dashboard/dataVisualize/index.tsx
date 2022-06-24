@@ -1,5 +1,11 @@
+import "./index.less";
+
 const DataVisualize = () => {
-	return <span>DataVisualize</span>;
+	return (
+		<div className="content-box">
+			<span className="text">DataVisualize 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default DataVisualize;

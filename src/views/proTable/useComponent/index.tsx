@@ -1,7 +1,11 @@
 import "./index.less";
 
 const UseComponent = () => {
-	return <span>UseComponent</span>;
+	return (
+		<div className="content-box">
+			<span className="text">UseComponent 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default UseComponent;

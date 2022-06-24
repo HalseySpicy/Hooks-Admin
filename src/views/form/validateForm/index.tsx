@@ -1,7 +1,11 @@
 import "./index.less";
 
 const ValidateForm = () => {
-	return <span>ValidateForm</span>;
+	return (
+		<div className="content-box">
+			<span className="text">ValidateForm 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default ValidateForm;

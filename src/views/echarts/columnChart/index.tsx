@@ -1,7 +1,11 @@
 import "./index.less";
 
 const ColumnChart = () => {
-	return <span>ColumnChart</span>;
+	return (
+		<div className="content-box">
+			<span className="text">ColumnChart 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default ColumnChart;

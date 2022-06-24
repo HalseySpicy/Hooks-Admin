@@ -1,7 +1,11 @@
 import "./index.less";
 
 const PieChart = () => {
-	return <span>PieChart</span>;
+	return (
+		<div className="content-box">
+			<span className="text">PieChart 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default PieChart;
