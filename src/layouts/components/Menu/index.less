@@ -26,8 +26,12 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 	}
+
+	/* 去除菜单 Loading 遮罩层 */
 	.ant-spin-nested-loading,
 	.ant-spin-container {
+		display: flex;
+		flex-direction: column;
 		height: 100%;
 		.ant-spin {
 			max-height: 100% !important;
