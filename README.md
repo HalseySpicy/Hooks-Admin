@@ -144,8 +144,6 @@ Geeker-Admin
 - FastMock： https://www.fastmock.site/
 - EasyMock：https://mock.mengxuegu.com/
 
-![weixin-hooks]()
-
 ### 七、微信交流群
 
 > 扫描以下二维码，加入群聊 🤪
