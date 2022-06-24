@@ -1,7 +1,7 @@
 {
 	"name": "react",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite",
 		"serve": "vite",
@@ -14,6 +14,7 @@
 		"lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
 		"lint:lint-staged": "lint-staged",
 		"prepare": "husky install",
+		"release": "standard-version",
 		"commit": "git pull && git add -A && git-cz && git push"
 	},
 	"dependencies": {
@@ -58,6 +59,7 @@
 		"postcss": "^8.4.14",
 		"prettier": "^2.6.2",
 		"rollup-plugin-visualizer": "^5.6.0",
+		"standard-version": "^9.5.0",
 		"stylelint": "^14.9.1",
 		"stylelint-config-prettier": "^9.0.3",
 		"stylelint-config-recess-order": "^3.0.0",
