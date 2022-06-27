@@ -3,6 +3,11 @@ import { setAssemblySize } from "@/redux/modules/global/action";
 import { connect } from "react-redux";
 
 const AssemblySize = (props: any) => {
+	// 切换组件大小
+	const onClick = (e: MenuInfo) => {
+		props.setAssemblySize(e.key);
+	};
+
 	const menu = (
 		<Menu
 			items={[
@@ -10,28 +15,19 @@ const AssemblySize = (props: any) => {
 					key: "middle",
 					disabled: props.assemblySize == "middle",
 					label: <span>默认</span>,
-					onClick: e => {
-						console.log(e);
-						props.setAssemblySize(e.key);
-					}
+					onClick
 				},
 				{
 					disabled: props.assemblySize == "large",
 					key: "large",
 					label: <span>大型</span>,
-					onClick: e => {
-						console.log(e);
-						props.setAssemblySize(e.key);
-					}
+					onClick
 				},
 				{
 					disabled: props.assemblySize == "small",
 					key: "small",
 					label: <span>小型</span>,
-					onClick: e => {
-						console.log(e);
-						props.setAssemblySize(e.key);
-					}
+					onClick
 				}
 			]}
 		/>
