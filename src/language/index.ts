@@ -1,6 +1,6 @@
 import i18n from "i18next";
-import enUsTrans from "./modules/en-us";
-import zhCnTrans from "./modules/zh-cn";
+import enUsTrans from "./modules/en";
+import zhCnTrans from "./modules/zh";
 import { initReactI18next } from "react-i18next";
 
 i18n.use(initReactI18next).init({

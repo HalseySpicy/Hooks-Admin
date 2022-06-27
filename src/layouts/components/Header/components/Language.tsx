@@ -1,17 +1,20 @@
 import { Dropdown, Menu } from "antd";
+import { connect } from "react-redux";
+import { setLanguage } from "@/redux/modules/global/action";
+import { getBrowserLang } from "@/utils/util";
 import i18n from "i18next";
-import { localGet } from "@/utils/util";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Language = () => {
-	const [language, setLanguage] = useState(localGet("i18nextLng"));
+const Language = (props: any) => {
+	const [language, setLanguage] = useState(props.language);
+	useEffect(() => {
+		setLanguage(props.language || getBrowserLang());
+		i18n.changeLanguage(props.language || getBrowserLang());
+	}, [props.language]);
 
-	// changeLanguage
 	const changeLanguage = (val: string) => {
-		i18n.changeLanguage(val);
-		setLanguage(localGet("i18nextLng"));
+		props.setLanguage(val);
 	};
-
 	const menu = (
 		<Menu
 			items={[
@@ -36,4 +39,7 @@ const Language = () => {
 		</Dropdown>
 	);
 };
-export default Language;
+
+const mapStateToProps = (state: any) => state.global;
+const mapDispatchToProps = { setLanguage };
+export default connect(mapStateToProps, mapDispatchToProps)(Language);

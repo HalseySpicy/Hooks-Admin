@@ -11,3 +11,9 @@ export const setAssemblySize = (assemblySize: string) => ({
 	type: types.SET_ASSEMBLY_SIZE,
 	assemblySize
 });
+
+// * setLanguage
+export const setLanguage = (language: string) => ({
+	type: types.SET_LANGUAGE,
+	language
+});

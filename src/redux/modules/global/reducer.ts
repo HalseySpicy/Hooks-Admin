@@ -26,6 +26,9 @@ const global = (state: GlobalState = globalState, action: AnyAction) =>
 			case types.SET_ASSEMBLY_SIZE:
 				draftState.assemblySize = action.assemblySize;
 				break;
+			case types.SET_LANGUAGE:
+				draftState.language = action.language;
+				break;
 			default:
 				return draftState;
 		}
