@@ -92,6 +92,7 @@ Geeker-Admin
 │  ├─ config              # 全局配置项
 │  ├─ enums               # 项目枚举
 │  ├─ hooks               # 常用 Hooks
+│  ├─ language            # 语言国际化
 │  ├─ layouts             # 框架布局
 │  ├─ routers             # 路由管理
 │  ├─ redux               # redux store

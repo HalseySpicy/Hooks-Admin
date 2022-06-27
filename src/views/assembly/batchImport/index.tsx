@@ -1,7 +1,11 @@
 import "./index.less";
 
 const BatchImport = () => {
-	return <span>BatchImport</span>;
+	return (
+		<div className="content-box">
+			<span className="text">BatchImport 🍓🍇🍈🍉</span>
+		</div>
+	);
 };
 
 export default BatchImport;

@@ -9,20 +9,20 @@ const UseHooks = (props: any) => {
 		console.log(props.authButtons);
 	}, []);
 
-	// const dataSource = [
-	// 	{
-	// 		key: "1",
-	// 		name: "胡彦斌",
-	// 		age: 32,
-	// 		address: "西湖区湖底公园1号"
-	// 	},
-	// 	{
-	// 		key: "2",
-	// 		name: "胡彦祖",
-	// 		age: 42,
-	// 		address: "西湖区湖底公园1号"
-	// 	}
-	// ];
+	const dataSource = [
+		{
+			key: "1",
+			name: "胡彦斌",
+			age: 32,
+			address: "西湖区湖底公园1号"
+		},
+		{
+			key: "2",
+			name: "胡彦祖",
+			age: 42,
+			address: "西湖区湖底公园1号"
+		}
+	];
 
 	const columns = [
 		{
@@ -43,7 +43,7 @@ const UseHooks = (props: any) => {
 	];
 	return (
 		<>
-			<RangePicker /> <Table dataSource={[]} columns={columns} />
+			<RangePicker /> <Table dataSource={dataSource} columns={columns} />
 		</>
 	);
 };
