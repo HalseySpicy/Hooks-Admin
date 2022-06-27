@@ -1,4 +1,4 @@
-import { Drawer, Tooltip } from "antd";
+import { Drawer } from "antd";
 import { useState } from "react";
 
 const Theme = () => {
@@ -14,14 +14,12 @@ const Theme = () => {
 
 	return (
 		<>
-			<Tooltip placement="bottom" title={"主题"}>
-				<i
-					className="icon-style iconfont icon-zhuti"
-					onClick={() => {
-						showDrawer();
-					}}
-				></i>
-			</Tooltip>
+			<i
+				className="icon-style iconfont icon-zhuti"
+				onClick={() => {
+					showDrawer();
+				}}
+			></i>
 			<Drawer
 				title="主题设置"
 				closable={false}

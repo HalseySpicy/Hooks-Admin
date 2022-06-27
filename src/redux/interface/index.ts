@@ -1,3 +1,5 @@
+import type { SizeType } from "antd/lib/config-provider/SizeContext";
+
 /* themeConfigProp */
 export interface ThemeConfigProp {
 	primary: string;
@@ -8,7 +10,7 @@ export interface ThemeConfigProp {
 export interface GlobalState {
 	token: string;
 	userInfo: any;
-	assemblySize: string;
+	assemblySize: SizeType;
 	language: string;
 	themeConfig: ThemeConfigProp;
 }

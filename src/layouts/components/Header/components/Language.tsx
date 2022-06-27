@@ -1,4 +1,4 @@
-import { Tooltip, Dropdown, Menu } from "antd";
+import { Dropdown, Menu } from "antd";
 const Language = () => {
 	const menu = (
 		<Menu
@@ -16,9 +16,7 @@ const Language = () => {
 	);
 	return (
 		<Dropdown overlay={menu} placement="bottom" trigger={["click"]} arrow={true}>
-			<Tooltip placement="bottom" title={"语言"}>
-				<i className="icon-style iconfont icon-zhongyingwen"></i>
-			</Tooltip>
+			<i className="icon-style iconfont icon-zhongyingwen"></i>
 		</Dropdown>
 	);
 };

@@ -21,7 +21,7 @@ import App from "@/App";
 // 	// </React.StrictMode>
 // );
 
-// react 17 创建
+// react 17 创建，控制台会报错，暂时不影响使用
 ReactDOM.render(
 	// * react严格模式
 	// <React.StrictMode>

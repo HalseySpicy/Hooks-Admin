@@ -1,4 +1,3 @@
-// import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
@@ -47,7 +46,7 @@ const LayoutIndex = (props: any) => {
 				<LayoutHeader></LayoutHeader>
 				<LayoutTabs></LayoutTabs>
 				<Content>
-					{/* TransitionGroup 会导致 useEffect 加载两次，后期在解决 && 使用路由懒加载第一次进入没有动画 */}
+					{/* TransitionGroup 会导致 useEffect 加载两次 && 使用路由懒加载第一次进入没有动画，所以暂时不用过渡动画了 */}
 					{/* <TransitionGroup className="content"> */}
 					{/* exit：表示退出当前页面的时候是否有动画 */}
 					{/* <CSSTransition key={pathname} timeout={200} classNames="fade" exit={false}> */}
@@ -61,8 +60,6 @@ const LayoutIndex = (props: any) => {
 	);
 };
 
-// * react-redux写法(高阶组件)
-// * connect具有两个参数，第一个参数是mapStateToProps，第二个参数是mapDispatchToProps
 const mapStateToProps = (state: any) => state.menu;
 const mapDispatchToProps = { setAuthButtons, updateCollapse };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutIndex);
