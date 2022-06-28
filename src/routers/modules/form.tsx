@@ -15,7 +15,6 @@ const formRouter: Array<RouteObject> = [
 				path: "/form/basicForm",
 				element: lazyLoad(React.lazy(() => import("@/views/form/basicForm/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "基础 Form",
 					key: "basicForm"
@@ -25,7 +24,6 @@ const formRouter: Array<RouteObject> = [
 				path: "/form/validateForm",
 				element: lazyLoad(React.lazy(() => import("@/views/form/validateForm/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "校验 Form",
 					key: "validateForm"
@@ -35,7 +33,6 @@ const formRouter: Array<RouteObject> = [
 				path: "/form/dynamicForm",
 				element: lazyLoad(React.lazy(() => import("@/views/form/dynamicForm/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "动态 Form",
 					key: "dynamicForm"

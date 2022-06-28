@@ -79,7 +79,17 @@ lint:stylelint
 npm run commit
 ```
 
-### 四、文件资源目录 📚
+### 四、项目截图
+
+#### 1、登录页：
+
+![hooks-login](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220628142330.png)
+
+#### 2、首页：
+
+![hooks-home](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220628142344.png)
+
+### 五、文件资源目录 📚
 
 ```text
 Geeker-Admin
@@ -128,7 +138,7 @@ Geeker-Admin
 └─ vite.config.ts         # vite 配置
 ```
 
-### 五、浏览器支持
+### 六、浏览器支持
 
 > 默认支持以下浏览器，vue3.2 不支持 IE 浏览器。更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)
 >
@@ -138,14 +148,14 @@ Geeker-Admin
 | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
 |                              last 2 versions                              |                                 last 2 versions                                 |                                last 2 versions                                |                                last 2 versions                                |
 
-### 六、项目后台接口 🧩
+### 七、项目后台接口 🧩
 
 > 项目后台接口完全采用 Mock 数据，感谢以下 Mock 平台支持
 
 - FastMock： https://www.fastmock.site/
 - EasyMock：https://mock.mengxuegu.com/
 
-### 七、微信交流群
+### 八、微信交流群
 
 > 扫描以下二维码，加入群聊 🤪
 
@@ -153,7 +163,7 @@ Geeker-Admin
 | :-------------------------------------------------------------------------------------: |
 | <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/md/hooks.png" width=170> |
 
-### 八、捐赠 🍵
+### 九、捐赠 🍵
 
 > **如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我**
 

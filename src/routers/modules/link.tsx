@@ -15,7 +15,6 @@ const linkRouter: Array<RouteObject> = [
 				path: "/link/gitee",
 				element: lazyLoad(React.lazy(() => import("@/views/link/gitee/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "Gitee 仓库",
 					key: "gitee"
@@ -25,7 +24,6 @@ const linkRouter: Array<RouteObject> = [
 				path: "/link/github",
 				element: lazyLoad(React.lazy(() => import("@/views/link/github/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "GitHub 仓库",
 					key: "github"
@@ -35,7 +33,6 @@ const linkRouter: Array<RouteObject> = [
 				path: "/link/juejin",
 				element: lazyLoad(React.lazy(() => import("@/views/link/juejin/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "掘金文档",
 					key: "juejin"
@@ -45,7 +42,6 @@ const linkRouter: Array<RouteObject> = [
 				path: "/link/myBlog",
 				element: lazyLoad(React.lazy(() => import("@/views/link/myBlog/index"))),
 				meta: {
-					keepAlive: true,
 					requiresAuth: true,
 					title: "个人博客",
 					key: "myBlog"
