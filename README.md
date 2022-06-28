@@ -18,7 +18,21 @@
 
 - GitHub：https://github.com/HalseySpicy/Hooks-Admin
 
-### 三、安装使用步骤 📑
+### 三、🔨🔨🔨 项目功能
+
+- 🚀 采用最新技术找开发：React18、React-Router v6、React-Hooks、TypeScript、Vite2
+
+- 🚀 采用 Vite2 作为项目开发、打包工具（配置了 Gzip 打包、跨域代理、打包预览工具……）
+- 🚀 整个项目集成了 TypeScript （完全是为了想学习 🤣）
+- 🚀 使用 redux 做状态管理，集成 immer、react-redux、redux-persist 开发
+
+- 🚀 使用 TypeScript 对 Axios 整个二次封装 （全局错误拦截、常用请求封装、全局请求 Loading、取消重复请求……）
+- 🚀 支持 Antd 组件大小切换、灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
+- 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面按钮权限配置
+- 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（规范配置）
+- 🚀 使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息（规范配置）
+
+### 四、安装使用步骤 📑
 
 - **Clone：**
 
@@ -79,7 +93,7 @@ lint:stylelint
 npm run commit
 ```
 
-### 四、项目截图
+### 五、项目截图
 
 #### 1、登录页：
 
@@ -89,7 +103,7 @@ npm run commit
 
 ![hooks-home](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220628142344.png)
 
-### 五、文件资源目录 📚
+### 六、文件资源目录 📚
 
 ```text
 Geeker-Admin
@@ -138,7 +152,7 @@ Geeker-Admin
 └─ vite.config.ts         # vite 配置
 ```
 
-### 六、浏览器支持
+### 七、浏览器支持
 
 > 默认支持以下浏览器，vue3.2 不支持 IE 浏览器。更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)
 >
@@ -148,14 +162,14 @@ Geeker-Admin
 | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
 |                              last 2 versions                              |                                 last 2 versions                                 |                                last 2 versions                                |                                last 2 versions                                |
 
-### 七、项目后台接口 🧩
+### 八、项目后台接口 🧩
 
 > 项目后台接口完全采用 Mock 数据，感谢以下 Mock 平台支持
 
 - FastMock： https://www.fastmock.site/
 - EasyMock：https://mock.mengxuegu.com/
 
-### 八、微信交流群
+### 九、微信交流群
 
 > 扫描以下二维码，加入群聊 🤪
 
@@ -163,7 +177,7 @@ Geeker-Admin
 | :-------------------------------------------------------------------------------------: |
 | <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/md/hooks.png" width=170> |
 
-### 九、捐赠 🍵
+### 十、捐赠 🍵
 
 > **如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我**
 

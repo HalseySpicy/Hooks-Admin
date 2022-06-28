@@ -1,10 +1,10 @@
 // import ReactDOM from "react-dom/client";
 import ReactDOM from "react-dom";
 import "@/styles/reset.less";
-import "@/styles/common.less";
 import "@/assets/iconfont/iconfont.less";
 import "antd/dist/antd.css";
 // import "antd/dist/antd.dark.css";
+import "@/styles/common.less";
 import "@/language/index";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
