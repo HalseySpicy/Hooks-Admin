@@ -28,4 +28,5 @@ const LayoutHeader = () => {
 		</Header>
 	);
 };
+
 export default LayoutHeader;

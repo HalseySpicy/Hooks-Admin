@@ -4,6 +4,7 @@ import type { SizeType } from "antd/lib/config-provider/SizeContext";
 export interface ThemeConfigProp {
 	primary: string;
 	isDark: boolean;
+	weakOrGray: string;
 }
 
 /* GlobalState */

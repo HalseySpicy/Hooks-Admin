@@ -78,6 +78,7 @@ const LayoutMenu = (props: any) => {
 			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
 			const dynamicRouter = handleRouter(data);
 			props.setAuthRouter(dynamicRouter);
+			props.setMenuList(data);
 		} finally {
 			setLoading(false);
 		}
