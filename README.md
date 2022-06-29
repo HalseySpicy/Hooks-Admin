@@ -1,10 +1,10 @@
 # Hooks-Admin 🚀
 
-### 介绍
+### 介绍 📖
 
 🚀🚀🚀 Hooks Admin，基于 React18、React-Router v6、React-Hooks、Redux、TypeScript、Vite2、Ant-Design 开源的一套后台管理框架。
 
-### 📚 相关文档
+### 项目相关文档 📚
 
 - 项目更新日志：[CHANGELOG.md](./CHANGELOG.md)
 
@@ -21,16 +21,15 @@
 ### 三、🔨🔨🔨 项目功能
 
 - 🚀 采用最新技术找开发：React18、React-Router v6、React-Hooks、TypeScript、Vite2
-
 - 🚀 采用 Vite2 作为项目开发、打包工具（配置了 Gzip 打包、跨域代理、打包预览工具……）
 - 🚀 整个项目集成了 TypeScript （完全是为了想学习 🤣）
 - 🚀 使用 redux 做状态管理，集成 immer、react-redux、redux-persist 开发
-
 - 🚀 使用 TypeScript 对 Axios 整个二次封装 （全局错误拦截、常用请求封装、全局请求 Loading、取消重复请求……）
 - 🚀 支持 Antd 组件大小切换、灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
 - 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面按钮权限配置
-- 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（规范配置）
-- 🚀 使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息（规范配置）
+- 🚀 支持 React-Router v6 路由懒加载配置、菜单手风琴模式、多标签页、面包屑导航
+- 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（项目规范配置）
+- 🚀 使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息（项目规范配置）
 
 ### 四、安装使用步骤 📑
 
@@ -154,7 +153,7 @@ Geeker-Admin
 
 ### 七、浏览器支持
 
-> 默认支持以下浏览器，vue3.2 不支持 IE 浏览器。更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)
+> 默认支持以下浏览器。更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)
 >
 > **💢 请不要使用 QQ 浏览器开发，QQ 浏览器 不识别 某些 ES6 以上语法**
 
