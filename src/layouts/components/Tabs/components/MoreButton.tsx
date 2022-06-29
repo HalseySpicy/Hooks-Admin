@@ -24,7 +24,7 @@ const MoreButton = (props: any) => {
 				{
 					key: "1",
 					label: <span>{t("tabs.closeCurrent")}</span>,
-					onClick: props.delTabs
+					onClick: () => props.delTabs(pathname)
 				},
 				{
 					key: "2",
