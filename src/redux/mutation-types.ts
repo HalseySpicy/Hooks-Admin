@@ -18,5 +18,7 @@ export const SET_TOKEN = "SET_TOKEN";
 export const SET_ASSEMBLY_SIZE = "SET_ASSEMBLY_SIZE";
 // 设置 setLanguage
 export const SET_LANGUAGE = "SET_LANGUAGE";
+// 设置 setDark
+export const SET_DARK = "SET_DARK";
 // 设置 setWeakOrGray
 export const SET_WEAK_OR_GRAY = "SET_WEAK_OR_GRAY";

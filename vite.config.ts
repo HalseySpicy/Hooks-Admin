@@ -24,6 +24,10 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 		css: {
 			preprocessorOptions: {
 				less: {
+					// modifyVars: {
+					// 	"primary-color": "#1DA57A",
+					// },
+					javascriptEnabled: true,
 					additionalData: `@import "@/styles/var.less";`
 				}
 			}

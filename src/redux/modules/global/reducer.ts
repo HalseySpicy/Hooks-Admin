@@ -31,6 +31,9 @@ const global = (state: GlobalState = globalState, action: AnyAction) =>
 			case types.SET_LANGUAGE:
 				draftState.language = action.language;
 				break;
+			case types.SET_DARK:
+				draftState.themeConfig.isDark = action.isDark;
+				break;
 			case types.SET_WEAK_OR_GRAY:
 				draftState.themeConfig.weakOrGray = action.weakOrGray;
 				break;

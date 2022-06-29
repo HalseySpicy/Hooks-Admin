@@ -40,16 +40,21 @@ const Theme = (props: any) => {
 					showDrawer();
 				}}
 			></i>
-			<Drawer title="主题设置" closable={false} onClose={onClose} visible={visible}>
+			<Drawer title="主题设置" closable={false} onClose={onClose} visible={visible} width={320}>
 				<Divider style={{ margin: "0 0 16px 0" }}>主题</Divider>
 				<div className="theme-item">
 					<span>暗黑模式（未完成）</span>
-					<Switch size="default" />
+					<Switch
+						checkedChildren={<>🌞</>}
+						unCheckedChildren={<>🌜</>}
+						onChange={e => {
+							console.log(e);
+						}}
+					/>
 				</div>
 				<div className="theme-item">
 					<span>灰色模式</span>
 					<Switch
-						size="default"
 						checked={weakOrGray === "gray"}
 						onChange={e => {
 							onChange(e, "gray");
@@ -59,7 +64,6 @@ const Theme = (props: any) => {
 				<div className="theme-item">
 					<span>色弱模式</span>
 					<Switch
-						size="default"
 						checked={weakOrGray === "weak"}
 						onChange={e => {
 							onChange(e, "weak");
@@ -70,6 +74,7 @@ const Theme = (props: any) => {
 		</>
 	);
 };
+
 const mapStateToProps = (state: any) => state.global;
 const mapDispatchToProps = { setWeakOrGray };
 export default connect(mapStateToProps, mapDispatchToProps)(Theme);

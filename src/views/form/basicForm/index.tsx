@@ -36,7 +36,7 @@ const BasicForm = () => {
 	};
 
 	return (
-		<Form form={form} name="control-hooks" onFinish={onFinish}>
+		<Form form={form} name="control-hooks" onFinish={onFinish} labelCol={{ span: 1 }}>
 			<Form.Item name="user" label="User">
 				<Input placeholder="Please enter a user" />
 			</Form.Item>
@@ -50,7 +50,7 @@ const BasicForm = () => {
 					<Option value="other">other</Option>
 				</Select>
 			</Form.Item>
-			<Form.Item>
+			<Form.Item wrapperCol={{ offset: 1 }}>
 				<Space>
 					<Button type="primary" htmlType="submit">
 						Submit

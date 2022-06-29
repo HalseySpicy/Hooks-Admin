@@ -18,6 +18,12 @@ export const setLanguage = (language: string) => ({
 	language
 });
 
+// * setDark
+export const setDark = (isDark: boolean) => ({
+	type: types.SET_DARK,
+	isDark
+});
+
 // * setWeakOrGray
 export const setWeakOrGray = (weakOrGray: string) => ({
 	type: types.SET_WEAK_OR_GRAY,
