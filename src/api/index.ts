@@ -5,6 +5,7 @@ import { ResultData } from "@/api/interface";
 import { ResultEnum } from "@/enums/httpEnum";
 import { checkStatus } from "./helper/checkStatus";
 import { AxiosCanceler } from "./helper/axiosCancel";
+import { setToken } from "@/redux/modules/global/action";
 import { message } from "antd";
 import { store } from "@/redux";
 
@@ -58,6 +59,7 @@ class RequestHttp {
 				tryHideFullScreenLoading();
 				// * 登陆失效（code == 599）
 				if (data.code == ResultEnum.OVERDUE) {
+					store.dispatch(setToken(""));
 					message.error(data.msg);
 					window.location.hash = "/login";
 					return Promise.reject(data);

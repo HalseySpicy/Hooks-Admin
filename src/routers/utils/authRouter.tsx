@@ -8,7 +8,7 @@ import { store } from "@/redux/index";
 const axiosCanceler = new AxiosCanceler();
 
 /**
- * @description 路由权限组件
+ * @description 路由守卫组件
  * */
 const AuthRouter = (props: any) => {
 	const { pathname } = useLocation();
@@ -31,7 +31,7 @@ const AuthRouter = (props: any) => {
 	// * 如果访问的地址没有在路由表中重定向到403页面
 	if (routerList.indexOf(pathname) == -1) return <Navigate to="/403" />;
 
-	// * 当前账号有权限返回 Layout 组件，正常访问页面
+	// * 当前账号有权限返回 Router，正常访问页面
 	return props.children;
 };
 
