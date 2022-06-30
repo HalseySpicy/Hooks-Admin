@@ -1,4 +1,4 @@
-import { Drawer, Divider, Switch } from "antd";
+import { Drawer, Divider, Switch, message } from "antd";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { setWeakOrGray } from "@/redux/modules/global/action";
@@ -47,8 +47,8 @@ const Theme = (props: any) => {
 					<Switch
 						checkedChildren={<>🌞</>}
 						unCheckedChildren={<>🌜</>}
-						onChange={e => {
-							console.log(e);
+						onChange={() => {
+							message.success("欢迎提交 pull request ✨");
 						}}
 					/>
 				</div>

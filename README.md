@@ -27,7 +27,7 @@
 - 🚀 使用 TypeScript 对 Axios 整个二次封装 （全局错误拦截、常用请求封装、全局请求 Loading、取消重复请求……）
 - 🚀 支持 Antd 组件大小切换、灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
 - 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面按钮权限配置
-- 🚀 支持 React-Router v6 路由懒加载配置、菜单手风琴模式、多标签页、面包屑导航
+- 🚀 支持 React-Router v6 路由懒加载配置、菜单手风琴模式、无限级菜单、多标签页、面包屑导航
 - 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（项目规范配置）
 - 🚀 使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息（项目规范配置）
 

@@ -10,7 +10,7 @@ const DataScreen = () => {
 		<div className="content-box">
 			<span className="text">DataScreen 🍓🍇🍈🍉</span>
 			<Button type="primary" onClick={requestMenuList}>
-				发起网络请求
+				点我发起网络请求 😎
 			</Button>
 		</div>
 	);

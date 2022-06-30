@@ -14,7 +14,7 @@ export const setMenuList = (menuList: Menu.MenuOptions[]) => ({
 	menuList
 });
 
-// * 下面方法仅为测试使用，不参与任何功能开发
+// ? 下面方法仅为测试使用，不参与任何功能开发
 interface MenuProps {
 	type: string;
 	menuList: Menu.MenuOptions[];
