@@ -38,8 +38,7 @@ const LayoutTabs = (props: any) => {
 
 	// delete tabs
 	const delTabs = (tabPath?: string) => {
-		console.log(tabPath);
-		if (pathname === HOME_URL) return;
+		if (tabPath === HOME_URL) return;
 		if (pathname === tabPath) {
 			props.tabsList.forEach((item: Menu.MenuOptions, index: number) => {
 				if (item.path !== pathname) return;
