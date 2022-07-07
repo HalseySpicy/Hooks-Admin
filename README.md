@@ -10,7 +10,7 @@
 
 ### 一、在线预览地址 👀
 
-- Link：http://hooks.spicyboy.cn
+- Link：https://hooks-admin.vercel.app
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
