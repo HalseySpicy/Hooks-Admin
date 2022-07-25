@@ -57,7 +57,7 @@ class RequestHttp {
 				// * 在请求结束后，移除本次请求(关闭loading)
 				axiosCanceler.removePending(config);
 				tryHideFullScreenLoading();
-				// * 登陆失效（code == 599）
+				// * 登录失效（code == 599）
 				if (data.code == ResultEnum.OVERDUE) {
 					store.dispatch(setToken(""));
 					message.error(data.msg);
