@@ -125,7 +125,7 @@ export const getBreadcrumbList = (path: string, menuList: Menu.MenuOptions[]) =>
 };
 
 /**
- * @description 双重递归 找出 所有面包屑生成对象存到 redux 中，就不用每次都去递归查找了
+ * @description 双重递归 找出所有 面包屑 生成对象存到 redux 中，就不用每次都去递归查找了
  * @param {String} menuList 当前菜单列表
  * @returns object
  */

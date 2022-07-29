@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { store, persistor } from "@/redux";
 import App from "@/App";
 
-// react 17 创建，控制台会报错，暂时不影响使用
+// react 17 创建，控制台会报错，暂时不影响使用（菜单折叠时不会出现闪烁）
 ReactDOM.render(
 	// * react严格模式
 	// <React.StrictMode>

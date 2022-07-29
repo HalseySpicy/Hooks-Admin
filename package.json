@@ -18,7 +18,7 @@
 		"commit": "git pull && git add -A && git-cz && git push"
 	},
 	"dependencies": {
-		"antd": "^4.21.3",
+		"antd": "^4.22.2",
 		"axios": "^0.27.2",
 		"echarts": "^5.3.3",
 		"i18next": "^21.8.10",
