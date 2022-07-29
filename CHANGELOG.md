@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file. See [standa
 - 🚀 新增 api 请求 ([50505c7](https://gitee.com/laramie/Hooks-Admin/commit/50505c7bd95e235bbef4c501ba8afb6eb6e942f8))
 - 🚀 新增 nprogress 插件 ([87c3185](https://gitee.com/laramie/Hooks-Admin/commit/87c318580e5f039430a113600393dc7a8c698cc0))
 - 🚀 新增错误页 ([4ed22d4](https://gitee.com/laramie/Hooks-Admin/commit/4ed22d40bafe75a516be3bb85527ac059aa67aaf))
-- 🚀 新增登陆页 ([55da905](https://gitee.com/laramie/Hooks-Admin/commit/55da9053626679b014a97ea314eeeee74ec50867))
+- 🚀 新增登录页 ([55da905](https://gitee.com/laramie/Hooks-Admin/commit/55da9053626679b014a97ea314eeeee74ec50867))
 - 🚀 新增路由懒加载 ([644b6ae](https://gitee.com/laramie/Hooks-Admin/commit/644b6ae6931fc634e676f038ba85cda69e461ba8))
 - 🚀 修改路由配置 ([a6ba805](https://gitee.com/laramie/Hooks-Admin/commit/a6ba8052410d66353aeb55010e845d393c71e6b2))
 - 🚀 优化路由拦截方法 ([94ea881](https://gitee.com/laramie/Hooks-Admin/commit/94ea881ad350ac4b6d2dc7d338801d5dfddbd1fe))
