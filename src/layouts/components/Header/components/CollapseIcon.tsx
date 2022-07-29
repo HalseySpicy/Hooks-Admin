@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import { updateCollapse } from "@/redux/modules/menu/action";
 
 const CollapseIcon = (props: any) => {
+	const { isCollapse, updateCollapse } = props;
 	return (
 		<div
 			className="collapsed"
 			onClick={() => {
-				props.updateCollapse(!props.isCollapse);
+				updateCollapse(!isCollapse);
 			}}
 		>
-			{props.isCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+			{isCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 		</div>
 	);
 };

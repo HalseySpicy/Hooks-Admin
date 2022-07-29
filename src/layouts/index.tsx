@@ -13,11 +13,12 @@ import "./index.less";
 
 const LayoutIndex = (props: any) => {
 	const { Sider, Content } = Layout;
+	const { isCollapse, updateCollapse, setAuthButtons } = props;
 
 	// 获取按钮权限列表
 	const getAuthButtonsList = async () => {
 		const { data } = await getAuthorButtons();
-		props.setAuthButtons(data);
+		setAuthButtons(data);
 	};
 
 	// 监听窗口大小变化
@@ -25,8 +26,8 @@ const LayoutIndex = (props: any) => {
 		window.onresize = () => {
 			return (() => {
 				let screenWidth = document.body.clientWidth;
-				if (props.isCollapse === false && screenWidth < 1200) props.updateCollapse(true);
-				if (props.isCollapse === false && screenWidth > 1200) props.updateCollapse(false);
+				if (!isCollapse && screenWidth < 1200) updateCollapse(true);
+				if (!isCollapse && screenWidth > 1200) updateCollapse(false);
 			})();
 		};
 	};

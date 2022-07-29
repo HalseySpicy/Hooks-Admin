@@ -1,4 +1,8 @@
 export default {
+	login: {
+		confirm: "登录",
+		reset: "重置"
+	},
 	home: {
 		welcome: "欢迎使用"
 	},

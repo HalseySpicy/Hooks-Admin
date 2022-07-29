@@ -11,6 +11,7 @@ import MoreButton from "./components/MoreButton";
 import "./index.less";
 
 const LayoutTabs = (props: any) => {
+	const { tabsList, setTabsList } = props;
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
@@ -28,11 +29,11 @@ const LayoutTabs = (props: any) => {
 	// add tabs
 	const addTabs = () => {
 		const route = searchRoute(pathname, routerArray);
-		let tabsList = JSON.parse(JSON.stringify(props.tabsList));
-		if (props.tabsList.every((item: any) => item.path !== route.path)) {
-			tabsList.push({ title: route.meta!.title, path: route.path });
+		let newTabsList = JSON.parse(JSON.stringify(tabsList));
+		if (tabsList.every((item: any) => item.path !== route.path)) {
+			newTabsList.push({ title: route.meta!.title, path: route.path });
 		}
-		props.setTabsList(tabsList);
+		setTabsList(newTabsList);
 		setActiveValue(pathname);
 	};
 
@@ -40,15 +41,15 @@ const LayoutTabs = (props: any) => {
 	const delTabs = (tabPath?: string) => {
 		if (tabPath === HOME_URL) return;
 		if (pathname === tabPath) {
-			props.tabsList.forEach((item: Menu.MenuOptions, index: number) => {
+			tabsList.forEach((item: Menu.MenuOptions, index: number) => {
 				if (item.path !== pathname) return;
-				const nextTab = props.tabsList[index + 1] || props.tabsList[index - 1];
+				const nextTab = tabsList[index + 1] || tabsList[index - 1];
 				if (!nextTab) return;
 				navigate(nextTab.path);
 			});
 		}
 		message.success("你删除了Tabs标签 😆😆😆");
-		props.setTabsList(props.tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath));
+		setTabsList(tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath));
 	};
 
 	return (
@@ -62,7 +63,7 @@ const LayoutTabs = (props: any) => {
 					delTabs(path as string);
 				}}
 			>
-				{props.tabsList.map((item: Menu.MenuOptions) => {
+				{tabsList.map((item: Menu.MenuOptions) => {
 					return (
 						<TabPane
 							key={item.path}

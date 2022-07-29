@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { HOME_URL } from "@/config/config";
 
 const MoreButton = (props: any) => {
-	let { t } = useTranslation();
+	const { t } = useTranslation();
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
 

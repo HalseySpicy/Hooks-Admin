@@ -6,11 +6,12 @@ import { setWeakOrGray } from "@/redux/modules/global/action";
 
 const Theme = (props: any) => {
 	const [visible, setVisible] = useState<boolean>(false);
+	const { setWeakOrGray } = props;
 	const { weakOrGray } = props.themeConfig;
 
 	const onChange = (checked: boolean, theme: string) => {
-		if (checked) return props.setWeakOrGray(theme);
-		props.setWeakOrGray("");
+		if (checked) return setWeakOrGray(theme);
+		setWeakOrGray("");
 	};
 
 	return (

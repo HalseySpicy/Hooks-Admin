@@ -10,7 +10,9 @@ import InfoModal from "./InfoModal";
 import avatar from "@/assets/images/avatar.png";
 
 const AvatarIcon = (props: any) => {
+	const { setToken } = props;
 	const navigate = useNavigate();
+
 	interface ModalProps {
 		showModal: (params: { name: number }) => void;
 	}
@@ -26,7 +28,7 @@ const AvatarIcon = (props: any) => {
 			okText: "确认",
 			cancelText: "取消",
 			onOk: () => {
-				props.setToken("");
+				setToken("");
 				message.success("退出登录成功！");
 				navigate("/login");
 			}

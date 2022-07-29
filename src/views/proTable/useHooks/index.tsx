@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { connect } from "react-redux";
 import { Table, DatePicker, Button, Space } from "antd";
 import useAuthButtons from "@/hooks/useAuthButtons";
 
@@ -86,5 +85,4 @@ const UseHooks = () => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.auth;
-export default connect(mapStateToProps)(UseHooks);
+export default UseHooks;

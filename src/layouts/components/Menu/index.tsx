@@ -14,13 +14,15 @@ import "./index.less";
 
 const LayoutMenu = (props: any) => {
 	const { pathname } = useLocation();
+	const { isCollapse, setBreadcrumbList, setAuthRouter, setMenuList: setMenuListAction } = props;
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
+
 	// 刷新页面菜单保持高亮
 	useEffect(() => {
 		setSelectedKeys([pathname]);
-		props.isCollapse ? null : setOpenKeys(getOpenKeys(pathname));
-	}, [pathname, props.isCollapse]);
+		isCollapse ? null : setOpenKeys(getOpenKeys(pathname));
+	}, [pathname, isCollapse]);
 
 	// 设置当前展开的 subMenu
 	const onOpenChange = (openKeys: string[]) => {
@@ -74,11 +76,11 @@ const LayoutMenu = (props: any) => {
 			if (!data) return;
 			setMenuList(deepLoopFloat(data));
 			// 存储处理过后的所有面包屑导航栏到 redux 中
-			props.setBreadcrumbList(findAllBreadcrumb(data));
+			setBreadcrumbList(findAllBreadcrumb(data));
 			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
 			const dynamicRouter = handleRouter(data);
-			props.setAuthRouter(dynamicRouter);
-			props.setMenuList(data);
+			setAuthRouter(dynamicRouter);
+			setMenuListAction(data);
 		} finally {
 			setLoading(false);
 		}
