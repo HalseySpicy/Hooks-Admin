@@ -174,7 +174,7 @@ Geeker-Admin
 
 |                                           微信群二维码                                            |
 | :-----------------------------------------------------------------------------------------------: |
-| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220721115057.png" width=200> |
+| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220729093901.png" width=200> |
 
 ### 十、捐赠 🍵
 
