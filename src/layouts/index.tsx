@@ -32,8 +32,8 @@ const LayoutIndex = () => {
 		window.onresize = () => {
 			return (() => {
 				let screenWidth = document.body.clientWidth;
-				if (!isCollapse && screenWidth < 1200) updateCollapse(true);
-				if (!isCollapse && screenWidth > 1200) updateCollapse(false);
+				if (!isCollapse && screenWidth < 1200) dispatch(updateCollapse(true));
+				if (!isCollapse && screenWidth > 1200) dispatch(updateCollapse(false));
 			})();
 		};
 	};

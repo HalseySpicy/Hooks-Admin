@@ -14,11 +14,11 @@ import "moment/dist/locale/zh-cn";
 
 const App = () => {
 	const dispatch = useDispatch();
-	const { language, assemblySize } = useSelector((state: RootState) => state.global);
+	const { language, assemblySize, themeConfig } = useSelector((state: RootState) => state.global);
 	const [i18nLocale, setI18nLocale] = useState(zhCN);
 
 	// 全局使用主题
-	useTheme();
+	useTheme(themeConfig);
 
 	// 设置 antd 语言国际化
 	const setAntdLanguage = () => {
