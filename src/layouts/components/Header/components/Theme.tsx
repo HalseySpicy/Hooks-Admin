@@ -1,17 +1,17 @@
 import { Drawer, Divider, Switch, message } from "antd";
 import { useState } from "react";
-import { connect } from "react-redux";
+import { RootState, useDispatch, useSelector } from "@/redux";
 import { FireOutlined } from "@ant-design/icons";
-import { setWeakOrGray } from "@/redux/modules/global/action";
+import { setWeakOrGray } from "@/redux/modules/global";
 
-const Theme = (props: any) => {
+const Theme = () => {
+	const dispatch = useDispatch();
+	const { weakOrGray } = useSelector((state: RootState) => state.global.themeConfig);
 	const [visible, setVisible] = useState<boolean>(false);
-	const { setWeakOrGray } = props;
-	const { weakOrGray } = props.themeConfig;
 
 	const onChange = (checked: boolean, theme: string) => {
-		if (checked) return setWeakOrGray(theme);
-		setWeakOrGray("");
+		if (checked) return dispatch(setWeakOrGray(theme));
+		dispatch(setWeakOrGray(""));
 	};
 
 	return (
@@ -68,6 +68,4 @@ const Theme = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setWeakOrGray };
-export default connect(mapStateToProps, mapDispatchToProps)(Theme);
+export default Theme;

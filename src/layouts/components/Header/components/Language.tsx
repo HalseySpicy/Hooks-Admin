@@ -1,9 +1,10 @@
 import { Dropdown, Menu } from "antd";
-import { connect } from "react-redux";
-import { setLanguage } from "@/redux/modules/global/action";
+import { RootState, useDispatch, useSelector } from "@/redux";
+import { setLanguage } from "@/redux/modules/global";
 
-const Language = (props: any) => {
-	const { language, setLanguage } = props;
+const Language = () => {
+	const dispatch = useDispatch();
+	const { language } = useSelector((state: RootState) => state.global);
 
 	const menu = (
 		<Menu
@@ -11,13 +12,13 @@ const Language = (props: any) => {
 				{
 					key: "1",
 					label: <span>简体中文</span>,
-					onClick: () => setLanguage("zh"),
+					onClick: () => dispatch(setLanguage("zh")),
 					disabled: language === "zh"
 				},
 				{
 					key: "2",
 					label: <span>English</span>,
-					onClick: () => setLanguage("en"),
+					onClick: () => dispatch(setLanguage("en")),
 					disabled: language === "en"
 				}
 			]}
@@ -30,6 +31,4 @@ const Language = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setLanguage };
-export default connect(mapStateToProps, mapDispatchToProps)(Language);
+export default Language;

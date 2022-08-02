@@ -1,16 +1,16 @@
-import { legacy_createStore as createStore, combineReducers, Store, compose } from "redux";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import { applyMiddleware } from "redux";
+import { TypedUseSelectorHook, useDispatch as useReduxDispatch, useSelector as useReduxSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import reduxThunk from "redux-thunk";
 import reduxPromise from "redux-promise";
-import global from "./modules/global/reducer";
-import menu from "./modules/menu/reducer";
-import tabs from "./modules/tabs/reducer";
-import auth from "./modules/auth/reducer";
-import breadcrumb from "./modules/breadcrumb/reducer";
+import global from "./modules/global";
+import menu from "./modules/menu";
+import tabs from "./modules/tabs";
+import auth from "./modules/auth";
+import breadcrumb from "./modules/breadcrumb";
 
-// 创建reducer(拆分reducer)
+// create reducer
 const reducer = combineReducers({
 	global,
 	menu,
@@ -19,23 +19,27 @@ const reducer = combineReducers({
 	breadcrumb
 });
 
-// redux 持久化配置
+// redux persist
 const persistConfig = {
 	key: "redux-state",
 	storage: storage
 };
 const persistReducerConfig = persistReducer(persistConfig, reducer);
 
-// 开启 redux-devtools
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// redux middleWares
+const middleWares = [reduxThunk, reduxPromise];
 
-// 使用 redux 中间件
-const middleWares = applyMiddleware(reduxThunk, reduxPromise);
+// store
+export const store = configureStore({
+	reducer: persistReducerConfig,
+	middleware: middleWares,
+	devTools: true
+});
 
-// 创建 store
-const store: Store = createStore(persistReducerConfig, composeEnhancers(middleWares));
+// create persist store
+export const persistor = persistStore(store);
 
-// 创建持久化 store
-const persistor = persistStore(store);
-
-export { store, persistor };
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
+export const useDispatch = () => useReduxDispatch<AppDispatch>();

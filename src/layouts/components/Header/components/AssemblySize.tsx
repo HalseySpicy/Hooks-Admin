@@ -1,13 +1,15 @@
 import { Dropdown, Menu } from "antd";
-import { setAssemblySize } from "@/redux/modules/global/action";
-import { connect } from "react-redux";
+import { setAssemblySize } from "@/redux/modules/global";
+import { RootState, useDispatch, useSelector } from "@/redux";
+import type { SizeType } from "antd/lib/config-provider/SizeContext";
 
-const AssemblySize = (props: any) => {
-	const { assemblySize, setAssemblySize } = props;
+const AssemblySize = () => {
+	const dispatch = useDispatch();
+	const { assemblySize } = useSelector((state: RootState) => state.global);
 
 	// 切换组件大小
 	const onClick = (e: MenuInfo) => {
-		setAssemblySize(e.key);
+		dispatch(setAssemblySize(e.key as SizeType));
 	};
 
 	const menu = (
@@ -41,6 +43,4 @@ const AssemblySize = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setAssemblySize };
-export default connect(mapStateToProps, mapDispatchToProps)(AssemblySize);
+export default AssemblySize;

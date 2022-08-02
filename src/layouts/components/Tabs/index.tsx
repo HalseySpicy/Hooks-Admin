@@ -3,15 +3,17 @@ import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
-import { connect } from "react-redux";
-import { setTabsList } from "@/redux/modules/tabs/action";
+import { setTabsList } from "@/redux/modules/tabs";
+import { RootState, useDispatch, useSelector } from "@/redux";
 import { routerArray } from "@/routers";
 import { searchRoute } from "@/utils/util";
 import MoreButton from "./components/MoreButton";
 import "./index.less";
 
-const LayoutTabs = (props: any) => {
-	const { tabsList, setTabsList } = props;
+const LayoutTabs = () => {
+	const dispatch = useDispatch();
+	const { tabsList } = useSelector((state: RootState) => state.tabs);
+
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
@@ -33,12 +35,12 @@ const LayoutTabs = (props: any) => {
 		if (tabsList.every((item: any) => item.path !== route.path)) {
 			newTabsList.push({ title: route.meta!.title, path: route.path });
 		}
-		setTabsList(newTabsList);
+		dispatch(setTabsList(newTabsList));
 		setActiveValue(pathname);
 	};
 
 	// delete tabs
-	const delTabs = (tabPath?: string) => {
+	const delTabs = (tabPath: string) => {
 		if (tabPath === HOME_URL) return;
 		if (pathname === tabPath) {
 			tabsList.forEach((item: Menu.MenuOptions, index: number) => {
@@ -49,7 +51,7 @@ const LayoutTabs = (props: any) => {
 			});
 		}
 		message.success("你删除了Tabs标签 😆😆😆");
-		setTabsList(tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath));
+		dispatch(setTabsList(tabsList.filter((item: Menu.MenuOptions) => item.path !== tabPath)));
 	};
 
 	return (
@@ -78,11 +80,9 @@ const LayoutTabs = (props: any) => {
 					);
 				})}
 			</Tabs>
-			<MoreButton delTabs={delTabs} {...props}></MoreButton>
+			<MoreButton delTabs={delTabs}></MoreButton>
 		</div>
 	);
 };
 
-const mapStateToProps = (state: any) => state.tabs;
-const mapDispatchToProps = { setTabsList };
-export default connect(mapStateToProps, mapDispatchToProps)(LayoutTabs);
+export default LayoutTabs;

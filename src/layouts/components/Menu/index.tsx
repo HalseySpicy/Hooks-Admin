@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
 import { findAllBreadcrumb, getOpenKeys, handleRouter, searchRoute } from "@/utils/util";
-import { setMenuList } from "@/redux/modules/menu/action";
-import { setBreadcrumbList } from "@/redux/modules/breadcrumb/action";
-import { setAuthRouter } from "@/redux/modules/auth/action";
+import { setMenuList as reduxSetMenuList } from "@/redux/modules/menu";
+import { setBreadcrumbList } from "@/redux/modules/breadcrumb";
+import { setAuthRouter } from "@/redux/modules/auth";
 import { getMenuList } from "@/api/modules/login";
-import { connect } from "react-redux";
+import { RootState, useDispatch, useSelector } from "@/redux";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
 import "./index.less";
 
-const LayoutMenu = (props: any) => {
+const LayoutMenu = () => {
+	const dispatch = useDispatch();
+	const { isCollapse, menuList: reduxMenuList } = useSelector((state: RootState) => state.menu);
 	const { pathname } = useLocation();
-	const { isCollapse, setBreadcrumbList, setAuthRouter, setMenuList: setMenuListAction } = props;
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
 
@@ -76,11 +77,13 @@ const LayoutMenu = (props: any) => {
 			if (!data) return;
 			setMenuList(deepLoopFloat(data));
 			// 存储处理过后的所有面包屑导航栏到 redux 中
-			setBreadcrumbList(findAllBreadcrumb(data));
+			dispatch(setBreadcrumbList(findAllBreadcrumb(data)));
 			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
 			const dynamicRouter = handleRouter(data);
-			setAuthRouter(dynamicRouter);
-			setMenuListAction(data);
+			dispatch(setAuthRouter(dynamicRouter));
+			dispatch(reduxSetMenuList(data));
+		} catch (error) {
+			console.log(error);
 		} finally {
 			setLoading(false);
 		}
@@ -92,7 +95,7 @@ const LayoutMenu = (props: any) => {
 	// 点击当前菜单跳转页面
 	const navigate = useNavigate();
 	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
-		const route = searchRoute(key, props.menuList);
+		const route = searchRoute(key, reduxMenuList);
 		if (route.isLink) window.open(route.isLink, "_blank");
 		navigate(key);
 	};
@@ -100,7 +103,7 @@ const LayoutMenu = (props: any) => {
 	return (
 		<div className="menu">
 			<Spin spinning={loading} tip="Loading...">
-				<Logo></Logo>
+				<Logo isCollapse={isCollapse}></Logo>
 				<Menu
 					theme="dark"
 					mode="inline"
@@ -116,6 +119,4 @@ const LayoutMenu = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setMenuList, setBreadcrumbList, setAuthRouter };
-export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);
+export default LayoutMenu;
