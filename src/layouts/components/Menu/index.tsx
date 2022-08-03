@@ -82,8 +82,6 @@ const LayoutMenu = () => {
 			const dynamicRouter = handleRouter(data);
 			dispatch(setAuthRouter(dynamicRouter));
 			dispatch(reduxSetMenuList(data));
-		} catch (error) {
-			console.log(error);
 		} finally {
 			setLoading(false);
 		}
