@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { getBrowserLang } from "@/utils/util";
 import { ConfigProvider } from "antd";
 import { connect } from "react-redux";
-import { setWeakOrGray } from "@/redux/modules/global/action";
 import { setLanguage } from "@/redux/modules/global/action";
 import { HashRouter } from "react-router-dom";
 import AuthRouter from "@/routers/utils/authRouter";
@@ -14,11 +13,12 @@ import i18n from "i18next";
 import "moment/dist/locale/zh-cn";
 
 const App = (props: any) => {
-	const { language, assemblySize, setLanguage } = props;
+	const { language, assemblySize, themeConfig, setLanguage } = props;
+	const { weakOrGray } = themeConfig;
 	const [i18nLocale, setI18nLocale] = useState(zhCN);
 
 	// 全局使用主题
-	useTheme(props);
+	useTheme(weakOrGray);
 
 	// 设置 antd 语言国际化
 	const setAntdLanguage = () => {
@@ -48,5 +48,5 @@ const App = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setWeakOrGray, setLanguage };
+const mapDispatchToProps = { setLanguage };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -31,7 +31,7 @@ export interface TabsState {
 /* BreadcrumbState */
 export interface BreadcrumbState {
 	breadcrumbList: {
-		[key: string]: any;
+		[propName: string]: any;
 	};
 }
 

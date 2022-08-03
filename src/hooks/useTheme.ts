@@ -1,13 +1,12 @@
 /**
  * @description 全局主题设置
  * */
-const useTheme = (props: any) => {
+const useTheme = (weakOrGray: string) => {
 	const initTheme = () => {
 		const body = document.documentElement as HTMLElement;
-		if (!props.themeConfig.weakOrGray) body.setAttribute("style", "");
-		if (props.themeConfig.weakOrGray === "weak") body.setAttribute("style", "filter: invert(80%)");
-		if (props.themeConfig.weakOrGray === "gray") body.setAttribute("style", "filter: grayscale(1)");
-		props.setWeakOrGray(props.themeConfig.weakOrGray);
+		if (!weakOrGray) body.setAttribute("style", "");
+		if (weakOrGray === "weak") body.setAttribute("style", "filter: invert(80%)");
+		if (weakOrGray === "gray") body.setAttribute("style", "filter: grayscale(1)");
 	};
 	initTheme();
 
