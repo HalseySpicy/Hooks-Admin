@@ -2,7 +2,9 @@
 
 ### 介绍 📖
 
-🚀🚀🚀 Hooks Admin，基于 React18、React-Router v6、React-Hooks、Redux、TypeScript、Vite2、Ant-Design 开源的一套后台管理框架。
+🚀🚀🚀 Hooks Admin，基于 React18、React-Router v6、React-Hooks、Redux && Redux-Toolkit、TypeScript、Vite2、Ant-Design 开源的一套后台管理框架。
+
+🌈 Redux-Toolkit 版本请切换到 Redux-Toolkit 分支上
 
 ### 项目相关文档 📚
 
@@ -24,6 +26,7 @@
 - 🚀 采用 Vite2 作为项目开发、打包工具（配置了 Gzip 打包、跨域代理、打包预览工具……）
 - 🚀 整个项目集成了 TypeScript （完全是为了想学习 🤣）
 - 🚀 使用 redux 做状态管理，集成 immer、react-redux、redux-persist 开发
+- 🚀 集成了两套状态管理，master 分支使用的是 redux || redux-toolkit 分支使用的是 redux-toolkit
 - 🚀 使用 TypeScript 对 Axios 整个二次封装 （全局错误拦截、常用请求封装、全局请求 Loading、取消重复请求……）
 - 🚀 支持 Antd 组件大小切换、灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
 - 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面按钮权限配置
@@ -174,7 +177,7 @@ Geeker-Admin
 
 |                                           微信群二维码                                            |
 | :-----------------------------------------------------------------------------------------------: |
-| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220729093901.png" width=200> |
+| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220803164218.png" width=200> |
 
 ### 十、捐赠 🍵
 
