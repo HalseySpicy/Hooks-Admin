@@ -296,7 +296,6 @@ const WaterChart = () => {
 		// 创建一个echarts实例，返回echarts实例。不能在单个容器中创建多个echarts实例
 		const myChart: echarts.EChartsType = echarts.init(echartsRef.current as HTMLDivElement);
 		// 设置图表实例的配置项和数据
-		// myChart.setOption(option);
 		useEcharts(myChart, option);
 		// 组件卸载
 		return () => {
