@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import "echarts-liquidfill";
-import useEcharts from "@/hooks/useEcharts";
 import "./index.less";
 
 const WaterChart = () => {
 	const echartsRef = useRef<HTMLDivElement>(null);
+	let myChart: echarts.EChartsType;
 	let value = 0.5;
 	let data = [value, value, value];
 	let option: echarts.EChartsCoreOption = {
@@ -292,17 +292,29 @@ const WaterChart = () => {
 		]
 	};
 
+	const setEcharts = () => {
+		option && myChart.setOption(option);
+	};
+
 	useEffect(() => {
-		// 创建一个echarts实例，返回echarts实例。不能在单个容器中创建多个echarts实例
-		const myChart: echarts.EChartsType = echarts.init(echartsRef.current as HTMLDivElement);
-		// 设置图表实例的配置项和数据
-		useEcharts(myChart, option);
-		// 组件卸载
+		myChart = echarts.init(echartsRef.current as HTMLDivElement);
+		const echartsResize = () => {
+			myChart && myChart.resize();
+		};
+		window.addEventListener("resize", echartsResize, false);
+
+		setEcharts();
 		return () => {
-			// myChart.dispose() 销毁实例。实例销毁后无法再被使用
+			window.removeEventListener("resize", echartsResize);
 			myChart && myChart.dispose();
 		};
-	}, []);
+	});
+
+	// 只判断数据的变化来动态setEcharts
+	useEffect(() => {
+		setEcharts();
+	}, [value]);
+
 	return <div ref={echartsRef} className="content-box"></div>;
 };
 
