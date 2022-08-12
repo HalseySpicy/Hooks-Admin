@@ -63,7 +63,7 @@ module.exports = {
 		"@typescript-eslint/explicit-module-boundary-types": "off", // 要求导出函数和类的公共类方法的显式返回和参数类型
 
 		// react (https://github.com/jsx-eslint/eslint-plugin-react)
-		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/rules-of-hooks": "off",
 		"react-hooks/exhaustive-deps": "off"
 	}
 };
