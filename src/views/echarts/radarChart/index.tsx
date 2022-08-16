@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
-import useEcharts from "@/hooks/useEcharts";
 
 const RadarChart = () => {
 	const echartsRef = useRef<HTMLDivElement>(null);
+	let myChart: echarts.EChartsType;
 	let option: echarts.EChartsOption = {
 		title: {
 			text: "Basic Radar Chart",
@@ -46,13 +46,23 @@ const RadarChart = () => {
 		]
 	};
 
+	const setEcharts = () => {
+		option && myChart.setOption(option);
+	};
+
 	useEffect(() => {
-		const myChart: echarts.EChartsType = echarts.init(echartsRef.current as HTMLDivElement);
-		useEcharts(myChart, option);
+		myChart = echarts.init(echartsRef.current as HTMLDivElement);
+		const echartsResize = () => {
+			myChart && myChart.resize();
+		};
+		window.addEventListener("resize", echartsResize, false);
+
+		setEcharts();
 		return () => {
+			window.removeEventListener("resize", echartsResize);
 			myChart && myChart.dispose();
 		};
-	}, []);
+	});
 
 	return <div ref={echartsRef} className="content-box"></div>;
 };
