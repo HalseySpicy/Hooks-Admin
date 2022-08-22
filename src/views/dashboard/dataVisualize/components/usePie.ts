@@ -133,7 +133,7 @@ export function usePie() {
 		window.addEventListener("resize", echartsResize, false);
 		return () => {
 			window.removeEventListener("resize", echartsResize);
-			myChart && myChart?.current?.dispose();
+			myChart?.current?.dispose();
 		};
 	}, []);
 
