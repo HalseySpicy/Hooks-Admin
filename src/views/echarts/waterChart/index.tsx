@@ -308,7 +308,7 @@ const WaterChart = () => {
 			window.removeEventListener("resize", echartsResize);
 			myChart && myChart.dispose();
 		};
-	});
+	}, []);
 
 	// 只判断数据的变化来动态setEcharts
 	useEffect(() => {
