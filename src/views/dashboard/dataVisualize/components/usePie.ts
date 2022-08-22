@@ -122,7 +122,9 @@ export function usePie() {
 	};
 
 	useEffect(() => {
-		myChart?.current?.setOption(option);
+		if (pieData?.length !== 0) {
+			myChart?.current?.setOption(option);
+		}
 	}, [pieData]);
 
 	useEffect(() => {

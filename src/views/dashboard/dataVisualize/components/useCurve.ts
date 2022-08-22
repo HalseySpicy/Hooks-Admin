@@ -153,7 +153,9 @@ export function useCurve() {
 	};
 
 	useEffect(() => {
-		myChart?.current?.setOption(option);
+		if (data?.length !== 0) {
+			myChart?.current?.setOption(option);
+		}
 	}, [data]);
 
 	useEffect(() => {
