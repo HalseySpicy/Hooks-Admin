@@ -145,7 +145,7 @@ const ColumnChart = () => {
 			window.removeEventListener("resize", echartsResize);
 			myChart && myChart.dispose();
 		};
-	});
+	}, []);
 
 	return <div ref={echartsRef} className="content-box"></div>;
 };
