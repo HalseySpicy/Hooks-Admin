@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { useEcharts } from "@/hooks/useEcharts";
 import "echarts-liquidfill";
-import { useState } from "react";
-import "./realTime.less";
+import "./RealTimeAccessChart.less";
+
 const RealTimeAccessChart = () => {
 	let data = 0.5;
 	const option = {
@@ -179,7 +180,7 @@ const RealTimeAccessChart = () => {
 	const [echartsRef] = useEcharts(option, data);
 	const [actualTotal] = useState("216908");
 	return (
-		<div className="realTime-box content-box">
+		<>
 			<div className="actual-total">
 				<div className="expect-total">
 					可预约总量<i>999999</i>人
@@ -195,8 +196,8 @@ const RealTimeAccessChart = () => {
 					<div className="actual-item">人</div>
 				</div>
 			</div>
-			<div ref={echartsRef} className="echarts"></div>
-		</div>
+			<div ref={echartsRef} className="actual-echarts"></div>
+		</>
 	);
 };
 

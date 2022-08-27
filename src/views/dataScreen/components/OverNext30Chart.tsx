@@ -1,11 +1,7 @@
 import { useEcharts } from "@/hooks/useEcharts";
 import { EChartsOption } from "echarts";
 import { randomNum } from "@/utils/util";
-
-interface ChartProp {
-	unit: string[];
-	data: number[];
-}
+import "./OverNext30Chart.less";
 
 const OverNext30Chart = () => {
 	// js 获取当前日期到之后一个月30天的日期区间
@@ -97,7 +93,7 @@ const OverNext30Chart = () => {
 				data: initDate()
 			}
 		],
-		yAxis: data.unit.map((val: ChartProp, index: number) => {
+		yAxis: data.unit.map((val: string, index: number) => {
 			return {
 				name: "(访问量)",
 				nameTextStyle: {
@@ -189,7 +185,7 @@ const OverNext30Chart = () => {
 		})
 	};
 	const [echartsRef] = useEcharts(option, data);
-	return <div ref={echartsRef} style={{ width: "100%", height: "100%" }}></div>;
+	return <div className="echarts" ref={echartsRef}></div>;
 };
 
 export default OverNext30Chart;

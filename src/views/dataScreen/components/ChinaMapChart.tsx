@@ -2,7 +2,7 @@ import { useEcharts } from "@/hooks/useEcharts";
 import { EChartsOption } from "echarts";
 import echarts from "@/utils/echarts";
 import mapJson from "../assets/china.json";
-import "./chinaMap.less";
+import "./ChinaMapChart.less";
 
 const ChinaMapChart = () => {
 	echarts.registerMap("china", mapJson as any);

@@ -1,7 +1,7 @@
 import { useEcharts } from "@/hooks/useEcharts";
 import { EChartsOption } from "echarts";
 import { ranking1, ranking2, ranking3, ranking4 } from "../assets/ranking-icon";
-import "./HotPlate.less";
+import "./HotPlateChart.less";
 interface ChartProp {
 	name: string;
 	value: number;
@@ -217,14 +217,14 @@ const HotPlateChart = () => {
 	};
 	const [echartsRef] = useEcharts(option, data);
 	return (
-		<div className="content-box">
+		<>
 			<div className="echarts-header">
 				<span>排名</span>
 				<span>景区</span>
 				<span>预约数量</span>
 			</div>
-			<div ref={echartsRef} className="echarts"></div>
-		</div>
+			<div ref={echartsRef} className="hot-echarts"></div>
+		</>
 	);
 };
 

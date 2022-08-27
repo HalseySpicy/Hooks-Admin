@@ -1,0 +1,39 @@
+.malefemaleRatio-main {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 40px 65px;
+	.malefemaleRatio-header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 115px;
+		.man,
+		.woman {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 110px;
+			height: 115px;
+			background: url("../images/man-bg.png") no-repeat;
+			background-size: 100% 100%;
+			img {
+				width: 60px;
+				height: 60px;
+				margin-top: 17px;
+			}
+			span {
+				margin-top: 2px;
+				font-size: 13px;
+				color: #ffffff;
+			}
+		}
+		.woman {
+			background: url("../images/woman-bg.png") no-repeat;
+		}
+	}
+	.echarts {
+		width: 100%;
+		height: calc(100% - 115px);
+	}
+}

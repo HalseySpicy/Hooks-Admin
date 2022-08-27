@@ -9,7 +9,21 @@
 			&::before {
 				border: none;
 			}
+			.ant-tabs-ink-bar {
+				visibility: visible;
+			}
+			.ant-tabs-tab-with-remove.ant-tabs-tab-active {
+				.ant-tabs-tab-remove {
+					margin: 8px;
+					color: @primary-color !important;
+					opacity: 1 !important;
+				}
+				.ant-tabs-tab-btn {
+					transform: translateX(-10px);
+				}
+			}
 			.ant-tabs-tab {
+				padding: 8px 22px;
 				color: #cccccc;
 				background: none;
 				border: none;
@@ -18,19 +32,26 @@
 					margin-right: 7px;
 				}
 				.ant-tabs-tab-remove {
+					position: absolute;
+					right: 0;
 					color: #cccccc;
+					opacity: 0;
+					transition: 0.1s ease-in-out;
 					&:hover {
 						color: @primary-color;
 					}
 				}
-				&:hover {
-					color: @primary-color;
-				}
 			}
-			.ant-tabs-tab-active {
-				border-bottom: 2px solid @primary-color !important;
-				.ant-tabs-tab-remove {
-					color: @primary-color;
+			.ant-tabs-tab.ant-tabs-tab-with-remove {
+				&:hover {
+					.ant-tabs-tab-remove {
+						margin: 8px;
+						opacity: 1;
+						transition: 0.1s ease-in-out;
+					}
+					.ant-tabs-tab-btn {
+						transform: translateX(-10px);
+					}
 				}
 			}
 		}
@@ -56,6 +77,6 @@
 /* tabs 不受全局组件大小影响 */
 .ant-tabs-small > .ant-tabs-nav .ant-tabs-tab,
 .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
-	padding: 8px 16px !important;
+	padding: 8px 24px !important;
 	font-size: 14px !important;
 }

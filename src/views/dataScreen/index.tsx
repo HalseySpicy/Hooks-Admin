@@ -11,6 +11,7 @@ import RealTimeAccessChart from "./components/RealTimeAccessChart";
 import ChinaMapChart from "./components/ChinaMapChart";
 import dataScreenTitle from "./images/dataScreen-title.png";
 import "./index.less";
+
 const DataScreen = () => {
 	const navigate = useNavigate();
 	const handleTo = () => {

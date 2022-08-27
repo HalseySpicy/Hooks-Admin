@@ -2,7 +2,7 @@ import { useEcharts } from "@/hooks/useEcharts";
 import { EChartsOption } from "echarts";
 import man from "../images/man.png";
 import woman from "../images/woman.png";
-import "./maleFemale.less";
+import "./MaleFemaleRatioChart.less";
 
 interface ChartProp {
 	man: number;
