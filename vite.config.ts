@@ -73,7 +73,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 				})
 		],
 		esbuild: {
-			drop: viteEnv.VITE_DROP_CONSOLE ? ["console", "debugger"] : []
+			drop: viteEnv.VITE_DROP_CONSOLE && mode.mode === "production" ? ["console", "debugger"] : []
 		},
 		// build configure
 		build: {
