@@ -57,7 +57,7 @@ const PieChart = () => {
 	};
 
 	const [echartsRef] = useEcharts(option);
-	return <div ref={echartsRef} className="content-box"></div>;
+	return <div ref={echartsRef} className="card content-box"></div>;
 };
 
 export default PieChart;

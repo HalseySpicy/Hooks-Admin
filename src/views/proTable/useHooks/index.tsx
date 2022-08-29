@@ -68,7 +68,7 @@ const UseHooks = () => {
 		}
 	];
 	return (
-		<>
+		<div className="card content-box">
 			<div className="date">
 				<span>切换国际化的时候看我 😎 ：</span>
 				<RangePicker />
@@ -80,8 +80,8 @@ const UseHooks = () => {
 					{BUTTONS.edit && <Button type="primary">我是 User 能看到的按钮</Button>}
 				</Space>
 			</div>
-			<Table dataSource={dataSource} columns={columns} />
-		</>
+			<Table bordered={true} dataSource={dataSource} columns={columns} />
+		</div>
 	);
 };
 

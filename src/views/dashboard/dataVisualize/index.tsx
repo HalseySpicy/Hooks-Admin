@@ -26,7 +26,7 @@ const DataVisualize = () => {
 
 	return (
 		<div className="dataVisualize-box">
-			<div className="top-box">
+			<div className=" card top-box">
 				<div className="top-title">数据可视化</div>
 				<Tabs defaultActiveKey="1" onChange={onChange}>
 					{tabsList.map(item => {
@@ -79,7 +79,7 @@ const DataVisualize = () => {
 					</div>
 				</div>
 			</div>
-			<div className="bottom-box">
+			<div className="card bottom-box">
 				<div className="bottom-title">数据来源</div>
 				<div className="bottom-tabs">
 					<Tabs defaultActiveKey="1" onChange={onChange}>

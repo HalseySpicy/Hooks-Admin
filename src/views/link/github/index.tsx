@@ -1,8 +1,6 @@
-import "./index.less";
-
 const Github = () => {
 	return (
-		<div className="content-box">
+		<div className="card content-box">
 			<span className="text">
 				Github 仓库：
 				<a href="https://github.com/HalseySpicy/Hooks-Admin" target="_blank" rel="noreferrer">

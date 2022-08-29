@@ -36,27 +36,3 @@ export namespace Login {
 		[propName: string]: any;
 	}
 }
-
-// * 用户管理
-export namespace User {
-	export interface ReqGetUserParams extends ReqPage {
-		username: string;
-		gender: number;
-		idCard: string;
-		email: string;
-		address: string;
-		createTime: string[];
-		status: number;
-	}
-	export interface ResUserList {
-		id: string;
-		username: string;
-		gender: string;
-		age: number;
-		idCard: string;
-		email: string;
-		address: string;
-		createTime: string;
-		status: number;
-	}
-}

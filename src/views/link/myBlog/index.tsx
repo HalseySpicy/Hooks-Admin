@@ -1,8 +1,6 @@
-import "./index.less";
-
 const MyBlog = () => {
 	return (
-		<div className="content-box">
+		<div className="card content-box">
 			<span className="text">
 				MyBlog ：
 				<a href="http://www.spicyboy.cn" target="_blank" rel="noreferrer">

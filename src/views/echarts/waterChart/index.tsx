@@ -291,7 +291,7 @@ const WaterChart = () => {
 	};
 
 	const [echartsRef] = useEcharts(option, data);
-	return <div ref={echartsRef} className="content-box"></div>;
+	return <div ref={echartsRef} className="card content-box"></div>;
 };
 
 export default WaterChart;

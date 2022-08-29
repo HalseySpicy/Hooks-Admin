@@ -12,7 +12,7 @@
 
 ### 一、在线预览地址 👀
 
-- Link：https://hooks-admin.vercel.app
+- Link：https://hooks.spicyboy.cn
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
@@ -28,7 +28,7 @@
 - 🚀 使用 redux 做状态管理，集成 immer、react-redux、redux-persist 开发
 - 🚀 集成了两套状态管理，master 分支使用的是 redux || redux-toolkit 分支使用的是 redux-toolkit
 - 🚀 使用 TypeScript 对 Axios 整个二次封装 （全局错误拦截、常用请求封装、全局请求 Loading、取消重复请求……）
-- 🚀 支持 Antd 组件大小切换、灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
+- 🚀 支持 Antd 组件大小切换、暗黑 && 灰色 && 色弱模式、i18n 国际化（i18n 暂时没配置所有文件，根据项目自行配置）
 - 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面按钮权限配置
 - 🚀 支持 React-Router v6 路由懒加载配置、菜单手风琴模式、无限级菜单、多标签页、面包屑导航
 - 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（项目规范配置）
@@ -108,7 +108,7 @@ npm run commit
 ### 六、文件资源目录 📚
 
 ```text
-Geeker-Admin
+Hooks-Admin
 ├─ .vscode                # vscode推荐配置
 ├─ public                 # 静态资源文件（忽略打包）
 ├─ src

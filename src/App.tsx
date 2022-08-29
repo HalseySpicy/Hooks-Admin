@@ -14,11 +14,10 @@ import "moment/dist/locale/zh-cn";
 
 const App = (props: any) => {
 	const { language, assemblySize, themeConfig, setLanguage } = props;
-	const { weakOrGray } = themeConfig;
 	const [i18nLocale, setI18nLocale] = useState(zhCN);
 
 	// 全局使用主题
-	useTheme(weakOrGray);
+	useTheme(themeConfig);
 
 	// 设置 antd 语言国际化
 	const setAntdLanguage = () => {

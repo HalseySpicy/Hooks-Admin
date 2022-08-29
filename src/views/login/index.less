@@ -1,15 +1,20 @@
 .login-container {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-width: 550px;
 	height: 100%;
 	min-height: 500px;
-	background-color: #eeeeee;
 	background-image: url("@/assets/images/login_bg.svg");
 	background-position: 50%;
 	background-size: 100% 100%;
 	background-size: cover;
+	.dark {
+		position: absolute;
+		top: 5%;
+		right: 3.2%;
+	}
 	.login-box {
 		box-sizing: border-box;
 		display: flex;
@@ -19,7 +24,6 @@
 		height: 94%;
 		padding: 0 4% 0 20px;
 		overflow: hidden;
-		background-color: hsl(0deg 0% 100% / 80%);
 		border-radius: 10px;
 		.login-left {
 			width: 750px;
@@ -31,7 +35,6 @@
 		.login-form {
 			padding: 40px 45px 25px;
 			border-radius: 10px;
-			box-shadow: 2px 3px 7px rgb(0 0 0 / 20%);
 			.login-logo {
 				display: flex;
 				align-items: center;
@@ -44,7 +47,6 @@
 					padding-left: 25px;
 					font-size: 48px;
 					font-weight: bold;
-					color: #475768;
 					white-space: nowrap;
 				}
 			}
@@ -77,9 +79,6 @@
 						span {
 							font-size: 14px;
 						}
-					}
-					.ant-btn-default {
-						color: #606266;
 					}
 				}
 			}

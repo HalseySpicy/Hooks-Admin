@@ -47,13 +47,7 @@ const LayoutIndex = (props: any) => {
 				<LayoutHeader></LayoutHeader>
 				<LayoutTabs></LayoutTabs>
 				<Content>
-					{/* TransitionGroup 会导致 useEffect 加载两次 && 使用路由懒加载第一次进入没有动画，所以暂时不用过渡动画了 */}
-					{/* <TransitionGroup className="content"> */}
-					{/* exit：表示退出当前页面的时候是否有动画 */}
-					{/* <CSSTransition key={pathname} timeout={200} classNames="fade" exit={false}> */}
 					<Outlet></Outlet>
-					{/* </CSSTransition> */}
-					{/* </TransitionGroup> */}
 				</Content>
 				<LayoutFooter></LayoutFooter>
 			</Layout>
