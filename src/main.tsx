@@ -5,6 +5,7 @@ import "@/assets/fonts/font.less";
 // import "antd/dist/antd.less";
 import "@/styles/common.less";
 import "@/language/index";
+import "virtual:svg-icons-register";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "@/redux";
