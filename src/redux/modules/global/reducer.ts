@@ -14,7 +14,13 @@ const globalState: GlobalState = {
 		// 深色模式
 		isDark: false,
 		// 色弱模式(weak) || 灰色模式(gray)
-		weakOrGray: ""
+		weakOrGray: "",
+		// 面包屑导航
+		breadcrumb: true,
+		// 标签页
+		tabs: true,
+		// 页脚
+		footer: true
 	}
 };
 
@@ -31,11 +37,8 @@ const global = (state: GlobalState = globalState, action: AnyAction) =>
 			case types.SET_LANGUAGE:
 				draftState.language = action.language;
 				break;
-			case types.SET_DARK:
-				draftState.themeConfig.isDark = action.isDark;
-				break;
-			case types.SET_WEAK_OR_GRAY:
-				draftState.themeConfig.weakOrGray = action.weakOrGray;
+			case types.SET_THEME_CONFIG:
+				draftState.themeConfig = action.themeConfig;
 				break;
 			default:
 				return draftState;

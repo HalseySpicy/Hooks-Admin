@@ -5,17 +5,22 @@ import { connect } from "react-redux";
 
 const BreadcrumbNav = (props: any) => {
 	const { pathname } = useLocation();
-	const breadcrumbList = props.breadcrumbList[pathname] || [];
+	const { themeConfig } = props.global;
+	const breadcrumbList = props.breadcrumb.breadcrumbList[pathname] || [];
 
 	return (
-		<Breadcrumb>
-			<Breadcrumb.Item href={`#${HOME_URL}`}>首页</Breadcrumb.Item>
-			{breadcrumbList.map((item: string) => {
-				return <Breadcrumb.Item key={item}>{item !== "首页" ? item : null}</Breadcrumb.Item>;
-			})}
-		</Breadcrumb>
+		<>
+			{!themeConfig.breadcrumb && (
+				<Breadcrumb>
+					<Breadcrumb.Item href={`#${HOME_URL}`}>首页</Breadcrumb.Item>
+					{breadcrumbList.map((item: string) => {
+						return <Breadcrumb.Item key={item}>{item !== "首页" ? item : null}</Breadcrumb.Item>;
+					})}
+				</Breadcrumb>
+			)}
+		</>
 	);
 };
 
-const mapStateToProps = (state: any) => state.breadcrumb;
+const mapStateToProps = (state: any) => state;
 export default connect(mapStateToProps)(BreadcrumbNav);

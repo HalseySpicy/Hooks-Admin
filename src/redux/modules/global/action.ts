@@ -1,4 +1,5 @@
 import * as types from "@/redux/mutation-types";
+import { ThemeConfigProp } from "@/redux/interface/index";
 
 // * setToken
 export const setToken = (token: string) => ({
@@ -18,14 +19,8 @@ export const setLanguage = (language: string) => ({
 	language
 });
 
-// * setDark
-export const setDark = (isDark: boolean) => ({
-	type: types.SET_DARK,
-	isDark
-});
-
-// * setWeakOrGray
-export const setWeakOrGray = (weakOrGray: string) => ({
-	type: types.SET_WEAK_OR_GRAY,
-	weakOrGray
+// * setThemeConfig
+export const setThemeConfig = (themeConfig: ThemeConfigProp) => ({
+	type: types.SET_THEME_CONFIG,
+	themeConfig
 });
