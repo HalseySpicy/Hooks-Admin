@@ -91,7 +91,7 @@ const Theme = (props: any) => {
 					/>
 				</div>
 				<div className="theme-item">
-					<span>标签栏(未完成)</span>
+					<span>标签栏</span>
 					<Switch
 						checked={!tabs}
 						onChange={e => {

@@ -11,7 +11,9 @@ import MoreButton from "./components/MoreButton";
 import "./index.less";
 
 const LayoutTabs = (props: any) => {
-	const { tabsList, setTabsList } = props;
+	const { tabsList } = props.tabs;
+	const { themeConfig } = props.global;
+	const { setTabsList } = props;
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
@@ -53,37 +55,41 @@ const LayoutTabs = (props: any) => {
 	};
 
 	return (
-		<div className="tabs">
-			<Tabs
-				animated
-				activeKey={activeValue}
-				onChange={clickTabs}
-				hideAdd
-				type="editable-card"
-				onEdit={path => {
-					delTabs(path as string);
-				}}
-			>
-				{tabsList.map((item: Menu.MenuOptions) => {
-					return (
-						<TabPane
-							key={item.path}
-							tab={
-								<span>
-									{item.path == HOME_URL ? <HomeFilled /> : ""}
-									{item.title}
-								</span>
-							}
-							closable={item.path !== HOME_URL}
-						></TabPane>
-					);
-				})}
-			</Tabs>
-			<MoreButton delTabs={delTabs} {...props}></MoreButton>
-		</div>
+		<>
+			{!themeConfig.tabs && (
+				<div className="tabs">
+					<Tabs
+						animated
+						activeKey={activeValue}
+						onChange={clickTabs}
+						hideAdd
+						type="editable-card"
+						onEdit={path => {
+							delTabs(path as string);
+						}}
+					>
+						{tabsList.map((item: Menu.MenuOptions) => {
+							return (
+								<TabPane
+									key={item.path}
+									tab={
+										<span>
+											{item.path == HOME_URL ? <HomeFilled /> : ""}
+											{item.title}
+										</span>
+									}
+									closable={item.path !== HOME_URL}
+								></TabPane>
+							);
+						})}
+					</Tabs>
+					<MoreButton tabsList={tabsList} delTabs={delTabs} setTabsList={setTabsList}></MoreButton>
+				</div>
+			)}
+		</>
 	);
 };
 
-const mapStateToProps = (state: any) => state.tabs;
+const mapStateToProps = (state: any) => state;
 const mapDispatchToProps = { setTabsList };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutTabs);
