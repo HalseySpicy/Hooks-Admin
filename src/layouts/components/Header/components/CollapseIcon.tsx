@@ -11,7 +11,7 @@ const CollapseIcon = (props: any) => {
 				updateCollapse(!isCollapse);
 			}}
 		>
-			{isCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+			{isCollapse ? <MenuUnfoldOutlined id="isCollapse" /> : <MenuFoldOutlined id="isCollapse" />}
 		</div>
 	);
 };
