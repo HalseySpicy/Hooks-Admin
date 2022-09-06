@@ -3,25 +3,22 @@ import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
 import { setAuthButtons } from "@/redux/modules/auth";
 import { updateCollapse } from "@/redux/modules/menu";
-import { getAuthorButtons } from "@/api/modules/login";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import LayoutMenu from "./components/Menu";
 import LayoutHeader from "./components/Header";
 import LayoutTabs from "./components/Tabs";
 import LayoutFooter from "./components/Footer";
 import "./index.less";
+import { useGetAuthorButtonsQuery } from "@/store/api/loginApi";
 
 const LayoutIndex = () => {
 	const dispatch = useDispatch();
-	const { isCollapse } = useSelector((state: RootState) => state.menu);
+	const { isCollapse } = useSelector((state: RootState) => state.reducer.menu);
 
 	const { Sider, Content } = Layout;
 
 	// 获取按钮权限列表
-	const getAuthButtonsList = async () => {
-		const { data } = await getAuthorButtons();
-		dispatch(setAuthButtons(data!));
-	};
+	const { data, isSuccess } = useGetAuthorButtonsQuery({});
 
 	// 监听窗口大小变化
 	const listeningWindow = () => {
@@ -36,12 +33,14 @@ const LayoutIndex = () => {
 
 	useEffect(() => {
 		listeningWindow();
-		getAuthButtonsList();
-	}, []);
+		if (isSuccess) {
+			setAuthButtons(data.data!);
+		}
+	}, [isSuccess]);
 
 	return (
 		// 这里不用 Layout 组件原因是切换页面时样式会先错乱然后在正常显示，造成页面闪屏效果
-		<section className="container">
+		<Layout className="container">
 			<Sider trigger={null} collapsed={isCollapse} width={220} theme="dark">
 				<LayoutMenu></LayoutMenu>
 			</Sider>
@@ -59,7 +58,7 @@ const LayoutIndex = () => {
 				</Content>
 				<LayoutFooter></LayoutFooter>
 			</Layout>
-		</section>
+		</Layout>
 	);
 };
 

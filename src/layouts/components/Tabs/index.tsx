@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
 import { setTabsList } from "@/redux/modules/tabs";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import { routerArray } from "@/routers";
 import { searchRoute } from "@/utils/util";
 import MoreButton from "./components/MoreButton";
@@ -12,7 +12,7 @@ import "./index.less";
 
 const LayoutTabs = () => {
 	const dispatch = useDispatch();
-	const { tabsList } = useSelector((state: RootState) => state.tabs);
+	const { tabsList } = useSelector((state: RootState) => state.reducer.tabs);
 
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();

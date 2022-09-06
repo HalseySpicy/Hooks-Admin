@@ -1,12 +1,12 @@
 import { Drawer, Divider, Switch, message } from "antd";
 import { useState } from "react";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import { FireOutlined } from "@ant-design/icons";
 import { setWeakOrGray } from "@/redux/modules/global";
 
 const Theme = () => {
 	const dispatch = useDispatch();
-	const { weakOrGray } = useSelector((state: RootState) => state.global.themeConfig);
+	const { weakOrGray } = useSelector((state: RootState) => state.reducer.global.themeConfig);
 	const [visible, setVisible] = useState<boolean>(false);
 
 	const onChange = (checked: boolean, theme: string) => {
@@ -28,7 +28,7 @@ const Theme = () => {
 				onClose={() => {
 					setVisible(false);
 				}}
-				visible={visible}
+				open={visible}
 				width={320}
 			>
 				<Divider className="divider">

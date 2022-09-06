@@ -3,7 +3,7 @@ import { Avatar, Modal, Menu, Dropdown, message } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
-import { useDispatch } from "@/redux";
+import { useDispatch } from "@/store";
 import { setToken } from "@/redux/modules/global";
 import PasswordModal from "./PasswordModal";
 import InfoModal from "./InfoModal";

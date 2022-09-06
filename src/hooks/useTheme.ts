@@ -1,10 +1,10 @@
-import { RootState, useSelector } from "@/redux";
+import { RootState, useSelector } from "@/store";
 
 /**
  * @description 全局主题设置
  * */
 const useTheme = () => {
-	const { weakOrGray } = useSelector((state: RootState) => state.global.themeConfig);
+	const { weakOrGray } = useSelector((state: RootState) => state.reducer.global.themeConfig);
 	const initTheme = () => {
 		const body = document.documentElement as HTMLElement;
 		if (!weakOrGray) body.setAttribute("style", "");

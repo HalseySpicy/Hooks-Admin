@@ -2,13 +2,13 @@ import { Button, Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setTabsList } from "@/redux/modules/tabs";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import { useTranslation } from "react-i18next";
 import { HOME_URL } from "@/config/config";
 
 const MoreButton = (props: any) => {
 	const dispatch = useDispatch();
-	const { tabsList } = useSelector((state: RootState) => state.tabs);
+	const { tabsList } = useSelector((state: RootState) => state.reducer.tabs);
 	const { delTabs } = props;
 	const { t } = useTranslation();
 	const { pathname } = useLocation();

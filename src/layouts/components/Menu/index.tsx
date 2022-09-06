@@ -5,16 +5,16 @@ import { findAllBreadcrumb, getOpenKeys, handleRouter, searchRoute } from "@/uti
 import { setMenuList as reduxSetMenuList } from "@/redux/modules/menu";
 import { setBreadcrumbList } from "@/redux/modules/breadcrumb";
 import { setAuthRouter } from "@/redux/modules/auth";
-import { getMenuList } from "@/api/modules/login";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import type { MenuProps } from "antd";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
 import "./index.less";
+import { useGetMenuListQuery } from "@/store/api/loginApi";
 
 const LayoutMenu = () => {
 	const dispatch = useDispatch();
-	const { isCollapse, menuList: reduxMenuList } = useSelector((state: RootState) => state.menu);
+	const { isCollapse, menuList: reduxMenuList } = useSelector((state: RootState) => state.reducer.menu);
 	const { pathname } = useLocation();
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
@@ -69,26 +69,24 @@ const LayoutMenu = () => {
 
 	// 获取菜单列表并处理成 antd menu 需要的格式
 	const [menuList, setMenuList] = useState<MenuItem[]>([]);
-	const [loading, setLoading] = useState(false);
-	const getMenuData = async () => {
-		setLoading(true);
-		try {
-			const { data } = await getMenuList();
-			if (!data) return;
-			setMenuList(deepLoopFloat(data));
-			// 存储处理过后的所有面包屑导航栏到 redux 中
-			dispatch(setBreadcrumbList(findAllBreadcrumb(data)));
-			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
-			const dynamicRouter = handleRouter(data);
-			dispatch(setAuthRouter(dynamicRouter));
-			dispatch(reduxSetMenuList(data));
-		} finally {
-			setLoading(false);
-		}
+	const { data, isFetching, isSuccess } = useGetMenuListQuery({});
+
+	const getMenuData = () => {
+		if (!data) return;
+		setMenuList(deepLoopFloat(data.data));
+		// 存储处理过后的所有面包屑导航栏到 redux 中
+		dispatch(setBreadcrumbList(findAllBreadcrumb(data.data)));
+		// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
+		const dynamicRouter = handleRouter(data.data);
+		dispatch(setAuthRouter(dynamicRouter));
+		dispatch(reduxSetMenuList(data.data));
 	};
+
 	useEffect(() => {
-		getMenuData();
-	}, []);
+		if (isSuccess) {
+			getMenuData();
+		}
+	}, [isSuccess]);
 
 	// 点击当前菜单跳转页面
 	const navigate = useNavigate();
@@ -100,7 +98,7 @@ const LayoutMenu = () => {
 
 	return (
 		<div className="menu">
-			<Spin spinning={loading} tip="Loading...">
+			<Spin spinning={isFetching} tip="Loading...">
 				<Logo isCollapse={isCollapse}></Logo>
 				<Menu
 					theme="dark"

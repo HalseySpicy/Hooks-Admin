@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { getBrowserLang } from "@/utils/util";
 import { ConfigProvider } from "antd";
-import { setLanguage } from "@/redux/modules/global";
+import { setLanguage } from "@/store/slice/globalSlice";
 import { HashRouter } from "react-router-dom";
-import { RootState, useDispatch, useSelector } from "@/redux";
+import { RootState, useDispatch, useSelector } from "@/store";
 import AuthRouter from "@/routers/utils/authRouter";
 import Router from "@/routers/index";
 import useTheme from "@/hooks/useTheme";
@@ -14,7 +14,7 @@ import "moment/dist/locale/zh-cn";
 
 const App = () => {
 	const dispatch = useDispatch();
-	const { language, assemblySize } = useSelector((state: RootState) => state.global);
+	const { language, assemblySize } = useSelector((state: RootState) => state.reducer.global);
 	const [i18nLocale, setI18nLocale] = useState(zhCN);
 
 	// 全局使用主题

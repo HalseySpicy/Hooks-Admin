@@ -38,6 +38,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 			port: viteEnv.VITE_PORT,
 			open: viteEnv.VITE_OPEN,
 			cors: true,
+			hmr: { overlay: false },
 			// https: false,
 			// 代理跨域（mock 不需要配置，这里只是个事列）
 			proxy: {
@@ -59,7 +60,9 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 				}
 			}),
 			// * EsLint 报错信息显示在浏览器界面上
-			eslintPlugin(),
+			eslintPlugin({
+				cache: false
+			}),
 			// * 是否生成包预览
 			viteEnv.VITE_REPORT && visualizer(),
 			// * gzip compress

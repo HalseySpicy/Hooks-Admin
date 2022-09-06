@@ -1,16 +1,18 @@
 import { useLocation, Navigate } from "react-router-dom";
-import { searchRoute } from "@/utils/util";
+import { localGet, searchRoute } from "@/utils/util";
 import { rootRouter } from "@/routers/index";
 import { HOME_URL } from "@/config/config";
-import { RootState, useSelector } from "@/redux";
+import { RootState, useSelector } from "@/store";
 
 /**
  * @description 路由守卫组件
  * */
 const AuthRouter = (props: { children: JSX.Element }) => {
-	const { token } = useSelector((state: RootState) => state.global);
+	// * 先判断localStorage里面有没有token
+
+	const token = localGet("token");
 	// * Dynamic Router(动态路由，根据后端返回的菜单数据生成的一维数组)
-	const { authRouter } = useSelector((state: RootState) => state.auth);
+	const { authRouter } = useSelector((state: RootState) => state.reducer.auth);
 
 	const { pathname } = useLocation();
 	const route = searchRoute(pathname, rootRouter);

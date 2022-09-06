@@ -26,7 +26,7 @@ const PasswordModal = (props: Props) => {
 		setIsModalVisible(false);
 	};
 	return (
-		<Modal title="修改密码" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} destroyOnClose={true}>
+		<Modal title="修改密码" open={isModalVisible} onOk={handleOk} onCancel={handleCancel} destroyOnClose={true}>
 			<p>Some Password...</p>
 			<p>Some Password...</p>
 			<p>Some Password...</p>
