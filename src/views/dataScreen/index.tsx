@@ -9,6 +9,7 @@ import OverNext30Chart from "./components/OverNext30Chart";
 import PlatformSourceChart from "./components/PlatformSourceChart";
 import RealTimeAccessChart from "./components/RealTimeAccessChart";
 import ChinaMapChart from "./components/ChinaMapChart";
+import Headertime from "./components/DataHeaderTime";
 import dataScreenTitle from "./images/dataScreen-title.png";
 import "./index.less";
 
@@ -63,7 +64,7 @@ const DataScreen = () => {
 					</div>
 					<div className="header-rg">
 						<span className="header-download">统计报告</span>
-						<span className="header-time">当前时间：2022年8月26 15:10:28</span>
+						<Headertime />
 					</div>
 				</div>
 				<div className="dataScreen-main">
