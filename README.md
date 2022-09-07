@@ -177,7 +177,7 @@ Hooks-Admin
 
 |                                           微信群二维码                                            |
 | :-----------------------------------------------------------------------------------------------: |
-| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220901100634.png" width=200> |
+| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220907113603.png" width=200> |
 
 ### 十、捐赠 🍵
 
