@@ -99,11 +99,15 @@ npm run commit
 
 #### 1、登录页：
 
-![hooks-login](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220628142330.png)
+![hooks-login-light](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220914150533.png)
+
+![hooks-login-dark](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220914150544.png)
 
 #### 2、首页：
 
-![hooks-home](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220628142344.png)
+![hooks-home-light](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220914150552.png)
+
+![hooks-home-dark](https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220914150559.png)
 
 ### 六、文件资源目录 📚
 
@@ -173,11 +177,11 @@ Hooks-Admin
 
 ### 九、微信交流群
 
-> 扫描以下二维码，加入群聊 🤪
+> 微信群已超过 200 人，需要加我好友，拉大家进群 🤪
 
-|                                           微信群二维码                                            |
+|                                            微信二维码                                             |
 | :-----------------------------------------------------------------------------------------------: |
-| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220907113603.png" width=200> |
+| <img src="https://iamge-1259297738.cos.ap-chengdu.myqcloud.com/img/20220914145852.png" width=200> |
 
 ### 十、捐赠 🍵
 
