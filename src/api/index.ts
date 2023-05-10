@@ -74,6 +74,7 @@ class RequestHttp {
 			},
 			async (error: AxiosError) => {
 				const { response } = error;
+				// * 即使
 				NProgress.done();
 				tryHideFullScreenLoading();
 				// 请求超时单独判断，请求超时没有 response
