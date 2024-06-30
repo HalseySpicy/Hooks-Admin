@@ -10,6 +10,12 @@
 
 - 项目更新日志：[CHANGELOG.md](./CHANGELOG.md)
 
+### Pro 付费版本 🔥
+
+- 有需要请加底部微信了解、购买
+
+- Link：https://pro.spicyboy.cn
+
 ### 一、在线预览地址 👀
 
 - Link：https://hooks.spicyboy.cn
